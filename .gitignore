@@ -93,3 +93,7 @@ dist/
 .serena/
 *.log
 .DS_Store
+.claude/
+.moai/
+.github/
+learning/
