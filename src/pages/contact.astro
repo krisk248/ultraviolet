@@ -68,39 +68,74 @@ import ContactForm from '@components/contact/ContactForm.vue';
           <!-- Direct Channels -->
           <div class="channel-card">
             <h3 class="channel-title">
-              <span class="channel-icon">&#x1F4E1;</span>
-              direct channels
+              <span class="channel-icon">&#x1F4E7;</span>
+              direct channel
             </h3>
             <div class="channel-list">
-              <a href="mailto:hello@kannan.dev" class="channel-link">
+              <a href="mailto:kannan@knn.net.in" class="channel-link">
                 <span class="channel-protocol">mailto://</span>
-                <span class="channel-address">hello@kannan.dev</span>
+                <span class="channel-address">kannan@knn.net.in</span>
               </a>
             </div>
           </div>
 
-          <!-- Open Ports -->
+          <!-- Open Ports (Social) -->
           <div class="channel-card">
             <h3 class="channel-title">
               <span class="channel-icon">&#x1F310;</span>
               open ports
             </h3>
             <div class="port-list">
-              <a href="https://github.com/kannan" target="_blank" rel="noopener" class="port-link">
+              <a href="https://github.com/krisk248" target="_blank" rel="noopener" class="port-link">
                 <span class="port-number">:443</span>
                 <span class="port-name">github</span>
                 <span class="port-status">&#x2192;</span>
               </a>
-              <a href="https://linkedin.com/in/kannan" target="_blank" rel="noopener" class="port-link">
+              <a href="https://www.linkedin.com/in/kannan842/" target="_blank" rel="noopener" class="port-link">
                 <span class="port-number">:443</span>
                 <span class="port-name">linkedin</span>
                 <span class="port-status">&#x2192;</span>
               </a>
-              <a href="https://twitter.com/kannan" target="_blank" rel="noopener" class="port-link">
+              <a href="https://x.com/_ph0n1x_" target="_blank" rel="noopener" class="port-link">
                 <span class="port-number">:443</span>
-                <span class="port-name">twitter/x</span>
+                <span class="port-name">x/twitter</span>
                 <span class="port-status">&#x2192;</span>
               </a>
+            </div>
+          </div>
+
+          <!-- Encrypted Channels -->
+          <div class="channel-card secure-card">
+            <h3 class="channel-title">
+              <span class="channel-icon">&#x1F510;</span>
+              encrypted channels
+            </h3>
+            <p class="secure-hint">// for the privacy-conscious</p>
+            <div class="secure-list">
+              <div class="secure-item">
+                <div class="secure-icon signal">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                  </svg>
+                </div>
+                <div class="secure-info">
+                  <span class="secure-name">signal</span>
+                  <span class="secure-handle">@ph0n1x.08</span>
+                </div>
+                <span class="secure-badge">e2e</span>
+              </div>
+              <div class="secure-item">
+                <div class="secure-icon matrix">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                    <path d="M.632.55v22.9H2.28V24H0V0h2.28v.55zm7.043 7.26v1.157h.033c.309-.443.683-.784 1.117-1.024.433-.245.936-.365 1.5-.365.54 0 1.033.107 1.481.314.448.208.785.582 1.02 1.108.254-.374.6-.706 1.034-.992.434-.287.95-.43 1.546-.43.453 0 .872.056 1.26.167.388.11.716.286.993.53.276.245.489.559.646.951.152.392.23.863.23 1.417v5.728h-2.349V11.52c0-.286-.01-.559-.032-.812a1.755 1.755 0 0 0-.18-.66 1.106 1.106 0 0 0-.438-.448c-.194-.11-.457-.166-.785-.166-.332 0-.6.064-.803.189a1.38 1.38 0 0 0-.48.499c-.117.199-.192.42-.227.67a5.14 5.14 0 0 0-.033.626v5.489h-2.349v-5.596c0-.254-.004-.503-.018-.747a2.175 2.175 0 0 0-.136-.658 1.01 1.01 0 0 0-.39-.473c-.184-.12-.446-.18-.785-.18-.106 0-.227.016-.361.048a1.67 1.67 0 0 0-.398.152 1.422 1.422 0 0 0-.37.293 1.091 1.091 0 0 0-.27.422c-.064.169-.107.37-.124.601-.018.23-.027.482-.027.747v5.491H5.46V7.81zm13.517 15.64H23.36V0h-2.28v.55h1.649v22.9H21.08v.55z"/>
+                  </svg>
+                </div>
+                <div class="secure-info">
+                  <span class="secure-name">matrix/element</span>
+                  <span class="secure-handle">@ph3n1x_8:matrix.org</span>
+                </div>
+                <span class="secure-badge">e2e</span>
+              </div>
             </div>
           </div>
 
@@ -128,6 +163,10 @@ import ContactForm from '@components/contact/ContactForm.vue';
               <div class="latency-row">
                 <span class="latency-type">email</span>
                 <span class="latency-time">&lt; 24h</span>
+              </div>
+              <div class="latency-row">
+                <span class="latency-type">signal/matrix</span>
+                <span class="latency-time">~few hours</span>
               </div>
               <div class="latency-row">
                 <span class="latency-type">urgent</span>
@@ -414,6 +453,11 @@ import ContactForm from '@components/contact/ContactForm.vue';
     background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
   }
 
+  .channel-card.secure-card {
+    border-color: rgba(34, 197, 94, 0.3);
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.05) 0%, rgba(16, 185, 129, 0.05) 100%);
+  }
+
   .channel-title {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.875rem;
@@ -501,6 +545,84 @@ import ContactForm from '@components/contact/ContactForm.vue';
   .port-status {
     color: #667eea;
     transition: transform 0.2s ease;
+  }
+
+  /* Secure Channels */
+  .secure-hint {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: #555;
+    margin-bottom: 0.75rem;
+  }
+
+  .secure-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .secure-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    transition: all 0.2s ease;
+  }
+
+  .secure-item:hover {
+    background: rgba(34, 197, 94, 0.1);
+  }
+
+  .secure-icon {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    color: #fff;
+  }
+
+  .secure-icon.signal {
+    background: linear-gradient(135deg, #3a76f0 0%, #2c6bed 100%);
+  }
+
+  .secure-icon.matrix {
+    background: linear-gradient(135deg, #0dbd8b 0%, #0a9d74 100%);
+  }
+
+  .secure-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+  }
+
+  .secure-name {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .secure-handle {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.875rem;
+    color: #22c55e;
+  }
+
+  .secure-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.625rem;
+    padding: 0.25rem 0.5rem;
+    background: rgba(34, 197, 94, 0.2);
+    color: #22c55e;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 
   /* Project List */
@@ -613,5 +735,14 @@ import ContactForm from '@components/contact/ContactForm.vue';
 
   :global(html.light) .channel-card.highlight-card {
     background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+  }
+
+  :global(html.light) .channel-card.secure-card {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.03) 0%, rgba(16, 185, 129, 0.03) 100%);
+    border-color: rgba(34, 197, 94, 0.2);
+  }
+
+  :global(html.light) .secure-item {
+    background: rgba(34, 197, 94, 0.05);
   }
 </style>
