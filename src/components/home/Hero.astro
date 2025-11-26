@@ -59,7 +59,46 @@
     </div>
   </div>
 
-  <!-- Section 4: The Invitation -->
+  <!-- Section 4: The Business -->
+  <div class="story-section business-section">
+    <div class="content-wrapper">
+      <div class="business-content">
+        <div class="business-header">
+          <span class="business-label">Beyond Code</span>
+          <h2 class="business-title">I Build Infrastructure You <span class="own-text">Own</span></h2>
+        </div>
+
+        <div class="business-services">
+          <div class="business-service">
+            <span class="service-icon">&#x1F3E2;</span>
+            <span class="service-name">Private Cloud</span>
+          </div>
+          <div class="business-service">
+            <span class="service-icon">&#x2699;</span>
+            <span class="service-name">DevSecOps</span>
+          </div>
+          <div class="business-service">
+            <span class="service-icon">&#x1F6E1;</span>
+            <span class="service-name">Security</span>
+          </div>
+        </div>
+
+        <p class="business-pitch">
+          Stop renting your data to Big Tech.<br/>
+          Sovereign infrastructure for UAE businesses.
+        </p>
+
+        <a href="/services" class="btn-services">
+          <span>Explore Services</span>
+          <svg viewBox="0 0 24 24" class="arrow-icon">
+            <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 5: The Invitation -->
   <div class="story-section invite-section">
     <div class="content-wrapper">
       <div class="invite-content">
@@ -277,7 +316,123 @@
     line-height: 1.8;
   }
 
-  /* Section 4: Invite */
+  /* Section 4: Business */
+  .business-section {
+    background: linear-gradient(180deg, #1a1a2e 0%, #0d0d12 100%);
+  }
+
+  .business-content {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .business-header {
+    margin-bottom: 2rem;
+  }
+
+  .business-label {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #4ecdc4;
+    padding: 0.5rem 1rem;
+    background: rgba(78, 205, 196, 0.1);
+    border-radius: 9999px;
+    margin-bottom: 1rem;
+  }
+
+  .business-title {
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.2;
+  }
+
+  .own-text {
+    background: linear-gradient(135deg, #667eea 0%, #4ecdc4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .business-services {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+  }
+
+  .business-service {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    min-width: 140px;
+    transition: all 0.3s ease;
+  }
+
+  .business-service:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(78, 205, 196, 0.3);
+    transform: translateY(-3px);
+  }
+
+  .business-service .service-icon {
+    font-size: 2rem;
+  }
+
+  .business-service .service-name {
+    font-size: 0.875rem;
+    color: #888;
+    font-weight: 500;
+  }
+
+  .business-pitch {
+    font-size: 1.125rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  .btn-services {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2rem;
+    background: transparent;
+    color: #4ecdc4;
+    font-size: 1rem;
+    font-weight: 600;
+    border: 2px solid #4ecdc4;
+    border-radius: 9999px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .btn-services:hover {
+    background: rgba(78, 205, 196, 0.1);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 40px rgba(78, 205, 196, 0.2);
+  }
+
+  .btn-services .arrow-icon {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+  }
+
+  .btn-services:hover .arrow-icon {
+    transform: translateX(5px);
+  }
+
+  /* Section 5: Invite */
   .invite-section {
     background: radial-gradient(ellipse at center, #1a1a2e 0%, #0a0a0f 70%);
   }
@@ -407,6 +562,23 @@
 
   :global(html.light) .scroll-hint {
     color: #999;
+  }
+
+  :global(html.light) .business-section {
+    background: linear-gradient(180deg, #e8e8ed 0%, #f5f5f7 100%);
+  }
+
+  :global(html.light) .business-service {
+    background: rgba(0, 0, 0, 0.02);
+    border-color: rgba(0, 0, 0, 0.05);
+  }
+
+  :global(html.light) .business-service:hover {
+    background: rgba(0, 0, 0, 0.04);
+  }
+
+  :global(html.light) .business-pitch {
+    color: #666;
   }
 </style>
 
