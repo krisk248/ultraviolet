@@ -1,0 +1,220 @@
+---
+const currentPath = new URL(Astro.request.url).pathname;
+
+// Quirky nav labels - terminal/hacker vibes
+const navItems = [
+  { label: './', tooltip: 'Home', href: '/' },
+  { label: 'whoami', tooltip: 'About', href: '/about' },
+  { label: 'ls -la', tooltip: 'Projects', href: '/projects' },
+  { label: '/dev/thoughts', tooltip: 'Blog', href: '/blog' },
+  { label: '> _', tooltip: 'Interactive', href: '/interactive' },
+  { label: 'ping', tooltip: 'Contact', href: '/contact' },
+];
+---
+
+<nav class="hidden md:flex items-center gap-1">
+  {navItems.map((item) => {
+    const isActive = currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href));
+    return (
+      <a
+        href={item.href}
+        class:list={[
+          'nav-link',
+          { 'nav-active': isActive }
+        ]}
+        title={item.tooltip}
+      >
+        <span class="nav-text">{item.label}</span>
+        <span class="nav-underline"></span>
+      </a>
+    );
+  })}
+</nav>
+
+<!-- Mobile menu button -->
+<button class="mobile-menu-btn md:hidden" aria-label="Toggle menu">
+  <span class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </span>
+</button>
+
+<!-- Mobile nav -->
+<nav class="mobile-nav md:hidden">
+  {navItems.map((item) => {
+    const isActive = currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href));
+    return (
+      <a
+        href={item.href}
+        class:list={[
+          'mobile-link',
+          { 'mobile-active': isActive }
+        ]}
+      >
+        <span class="mobile-label">{item.label}</span>
+        <span class="mobile-tooltip">{item.tooltip}</span>
+      </a>
+    );
+  })}
+</nav>
+
+<style>
+  /* Desktop nav */
+  .nav-link {
+    position: relative;
+    padding: 0.5rem 0.75rem;
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    font-size: 0.875rem;
+    color: #888;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .nav-link:hover {
+    color: #4ecdc4;
+  }
+
+  .nav-link.nav-active {
+    color: #4ecdc4;
+  }
+
+  .nav-underline {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #667eea, #4ecdc4);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+  }
+
+  .nav-link:hover .nav-underline,
+  .nav-link.nav-active .nav-underline {
+    width: 100%;
+  }
+
+  /* Mobile menu button */
+  .mobile-menu-btn {
+    padding: 0.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #888;
+    transition: all 0.3s ease;
+  }
+
+  .mobile-menu-btn:hover .hamburger span {
+    background: #4ecdc4;
+  }
+
+  /* Mobile nav (hidden by default) */
+  .mobile-nav {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background: rgba(10, 10, 15, 0.98);
+    backdrop-filter: blur(10px);
+    padding: 1rem;
+    display: none;
+    flex-direction: column;
+    gap: 0.5rem;
+    border-bottom: 1px solid #222;
+  }
+
+  .mobile-nav.open {
+    display: flex;
+  }
+
+  .mobile-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .mobile-link:hover,
+  .mobile-link.mobile-active {
+    background: rgba(78, 205, 196, 0.1);
+  }
+
+  .mobile-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem;
+    color: #4ecdc4;
+  }
+
+  .mobile-tooltip {
+    font-size: 0.75rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .mobile-active .mobile-label {
+    color: #fff;
+  }
+
+  /* Light mode */
+  :global(html.light) .nav-link {
+    color: #666;
+  }
+
+  :global(html.light) .nav-link:hover,
+  :global(html.light) .nav-link.nav-active {
+    color: #667eea;
+  }
+
+  :global(html.light) .nav-underline {
+    background: linear-gradient(90deg, #667eea, #764ba2);
+  }
+
+  :global(html.light) .mobile-nav {
+    background: rgba(255, 255, 255, 0.98);
+    border-color: #eee;
+  }
+
+  :global(html.light) .mobile-label {
+    color: #667eea;
+  }
+
+  :global(html.light) .mobile-tooltip {
+    color: #999;
+  }
+</style>
+
+<script>
+  // Mobile menu toggle
+  const menuBtn = document.querySelector('.mobile-menu-btn');
+  const mobileNav = document.querySelector('.mobile-nav');
+
+  menuBtn?.addEventListener('click', () => {
+    mobileNav?.classList.toggle('open');
+    menuBtn.classList.toggle('active');
+  });
+
+  // Close mobile menu when clicking a link
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileNav?.classList.remove('open');
+      menuBtn?.classList.remove('active');
+    });
+  });
+</script>

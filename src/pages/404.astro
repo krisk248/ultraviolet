@@ -1,0 +1,316 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="404 | File Not Found" description="The page you're looking for doesn't exist">
+  <main class="error-page">
+    <div class="error-container">
+      <!-- Terminal Window -->
+      <div class="terminal-window">
+        <div class="terminal-header">
+          <div class="terminal-dots">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+          </div>
+          <span class="terminal-title">bash -- 80x24</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-output">
+            <p class="line">
+              <span class="prompt">~$</span>
+              <span class="command">cd /requested/path</span>
+            </p>
+            <p class="line error">
+              bash: cd: /requested/path: No such file or directory
+            </p>
+            <p class="line">
+              <span class="prompt">~$</span>
+              <span class="command">find . -name "page" 2>/dev/null</span>
+            </p>
+            <p class="line muted">
+              // searching...
+            </p>
+            <p class="line error-code">
+              <span class="big-error">404</span>
+            </p>
+            <p class="line">
+              <span class="prompt">~$</span>
+              <span class="command">cat /dev/random_excuse</span>
+            </p>
+            <p class="line excuse" id="excuse">
+              Loading excuse...
+            </p>
+            <p class="line">
+              <span class="prompt">~$</span>
+              <span class="cursor">|</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Options -->
+      <div class="nav-options">
+        <p class="nav-hint">Maybe try one of these instead:</p>
+        <div class="nav-links">
+          <a href="/" class="nav-link">
+            <span class="nav-cmd">cd ~/</span>
+            <span class="nav-desc">home</span>
+          </a>
+          <a href="/projects" class="nav-link">
+            <span class="nav-cmd">ls -la</span>
+            <span class="nav-desc">projects</span>
+          </a>
+          <a href="/about" class="nav-link">
+            <span class="nav-cmd">whoami</span>
+            <span class="nav-desc">about</span>
+          </a>
+          <a href="/contact" class="nav-link">
+            <span class="nav-cmd">ping</span>
+            <span class="nav-desc">contact</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Fun Footer -->
+      <p class="fun-footer">
+        // don't worry, I've also gotten lost in my own codebase at 2am
+      </p>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .error-page {
+    min-height: 100vh;
+    background: #0a0a0f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  .error-container {
+    max-width: 600px;
+    width: 100%;
+  }
+
+  /* Terminal Window */
+  .terminal-window {
+    background: #1a1a2e;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .terminal-header {
+    background: #252542;
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .terminal-dots {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+  }
+
+  .dot.red { background: #ff5f56; }
+  .dot.yellow { background: #ffbd2e; }
+  .dot.green { background: #27c93f; }
+
+  .terminal-title {
+    flex: 1;
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: #666;
+  }
+
+  .terminal-body {
+    padding: 1.5rem;
+  }
+
+  .terminal-output {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.875rem;
+    line-height: 1.8;
+  }
+
+  .line {
+    margin: 0;
+  }
+
+  .prompt {
+    color: #4ecdc4;
+    margin-right: 0.5rem;
+  }
+
+  .command {
+    color: #fff;
+  }
+
+  .line.error {
+    color: #ff6b6b;
+  }
+
+  .line.muted {
+    color: #555;
+    font-style: italic;
+  }
+
+  .line.error-code {
+    text-align: center;
+    padding: 1.5rem 0;
+  }
+
+  .big-error {
+    font-size: 4rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #4ecdc4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: glitch 2s infinite;
+  }
+
+  @keyframes glitch {
+    0%, 90%, 100% { transform: none; }
+    92% { transform: translateX(-2px); }
+    94% { transform: translateX(2px); }
+    96% { transform: translateX(-2px); }
+    98% { transform: translateX(2px); }
+  }
+
+  .line.excuse {
+    color: #888;
+    padding-left: 0;
+  }
+
+  .cursor {
+    color: #4ecdc4;
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  /* Navigation */
+  .nav-options {
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  .nav-hint {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: #666;
+    margin-bottom: 1rem;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+  }
+
+  .nav-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.75rem 1.25rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .nav-link:hover {
+    background: rgba(102, 126, 234, 0.1);
+    border-color: rgba(102, 126, 234, 0.3);
+    transform: translateY(-2px);
+  }
+
+  .nav-cmd {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.875rem;
+    color: #4ecdc4;
+  }
+
+  .nav-desc {
+    font-size: 0.7rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* Footer */
+  .fun-footer {
+    text-align: center;
+    margin-top: 2rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: #444;
+    font-style: italic;
+  }
+
+  /* Light mode */
+  :global(html.light) .error-page {
+    background: #fafafa;
+  }
+
+  :global(html.light) .terminal-window {
+    background: #fff;
+    border-color: #eee;
+  }
+
+  :global(html.light) .terminal-header {
+    background: #f5f5f5;
+  }
+
+  :global(html.light) .command {
+    color: #111;
+  }
+
+  :global(html.light) .nav-link {
+    background: #fff;
+    border-color: #ddd;
+  }
+</style>
+
+<script>
+  // Random excuses for the 404 page
+  const excuses = [
+    "The page was last seen debugging itself at 3am",
+    "404: Page took a coffee break. Indefinitely.",
+    "This page is still loading... since 1999",
+    "The page exists in a parallel universe. Not this one.",
+    "Page not found. Have you tried turning the internet off and on?",
+    "This page went to get milk. It never came back.",
+    "404: The page was deprecated before it was cool",
+    "Error: Page.exe has stopped working. Page is confused.",
+    "The requested page has been moved to /dev/null",
+    "This page requires more coffee to render",
+    "The page you seek exists only in legend",
+    "404: Page is busy contemplating existence",
+  ];
+
+  const excuseElement = document.getElementById('excuse');
+  if (excuseElement) {
+    const randomExcuse = excuses[Math.floor(Math.random() * excuses.length)];
+    excuseElement.textContent = randomExcuse;
+  }
+</script>

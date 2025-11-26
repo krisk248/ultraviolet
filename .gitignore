@@ -83,3 +83,13 @@ docs/out/
 .uv_cache
 .uv-cache
 .venv_issue43_py313
+
+
+node_modules/
+dist/
+.astro/
+.moai/cache/
+.moai/memory/
+.serena/
+*.log
+.DS_Store

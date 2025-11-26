@@ -1,0 +1,110 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="border-t border-dark-700 bg-dark-900/50 backdrop-blur-sm mt-20">
+  <div class="container-custom section-padding">
+    <!-- Footer Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+      <!-- Brand Column -->
+      <div>
+        <div class="flex items-center gap-2 mb-4">
+          <div class="w-8 h-8 bg-gradient-to-br from-primary-500 to-accent-600 rounded-lg flex items-center justify-center text-white font-bold">
+            K
+          </div>
+          <span class="font-bold bg-gradient-to-r from-primary-500 to-accent-600 bg-clip-text text-transparent">
+            Kannan
+          </span>
+        </div>
+        <p class="text-dark-400 text-sm">
+          DevSecOps Engineer & Maker Generalist. Building secure, innovative solutions.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h3 class="font-semibold text-dark-100 mb-4">Navigation</h3>
+        <ul class="space-y-2 text-sm">
+          <li>
+            <a href="/" class="text-dark-400 hover:text-primary-500 transition-colors">Home</a>
+          </li>
+          <li>
+            <a href="/about" class="text-dark-400 hover:text-primary-500 transition-colors">About</a>
+          </li>
+          <li>
+            <a href="/projects" class="text-dark-400 hover:text-primary-500 transition-colors">Projects</a>
+          </li>
+          <li>
+            <a href="/blog" class="text-dark-400 hover:text-primary-500 transition-colors">Blog</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Social Links -->
+      <div>
+        <h3 class="font-semibold text-dark-100 mb-4">Social</h3>
+        <ul class="space-y-2 text-sm">
+          <li>
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="text-dark-400 hover:text-primary-500 transition-colors">
+              GitHub
+            </a>
+          </li>
+          <li>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="text-dark-400 hover:text-primary-500 transition-colors">
+              LinkedIn
+            </a>
+          </li>
+          <li>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="text-dark-400 hover:text-primary-500 transition-colors">
+              Twitter
+            </a>
+          </li>
+          <li>
+            <a href="https://email.com" class="text-dark-400 hover:text-primary-500 transition-colors">
+              Email
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h3 class="font-semibold text-dark-100 mb-4">Contact</h3>
+        <p class="text-dark-400 text-sm mb-2">
+          Interested in working together?
+        </p>
+        <a href="/contact" class="btn btn-accent text-sm">
+          Get In Touch
+        </a>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="border-t border-dark-700 pt-8">
+      <!-- Bottom Section -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-dark-400">
+        <p>
+          &copy; {currentYear} Kannan. All rights reserved.
+        </p>
+        <div class="flex gap-6">
+          <a href="/privacy" class="hover:text-primary-500 transition-colors">Privacy Policy</a>
+          <a href="/terms" class="hover:text-primary-500 transition-colors">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style is:inline>
+    html.light footer {
+      @apply border-dark-100 bg-dark-50;
+    }
+
+    html.light footer h3 {
+      @apply text-dark-900;
+    }
+
+    html.light footer p {
+      @apply text-dark-600;
+    }
+  </style>
+</footer>

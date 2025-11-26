@@ -1,0 +1,453 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const allProjects = await getCollection('projects');
+
+// Group projects by category
+const categories = ['security', '3d-printing', 'electronics', 'python', 'ai'];
+---
+
+<BaseLayout title="ls -la | Projects" description="Explore my work across security, making, and automation">
+  <main class="projects-page">
+    <!-- Terminal Header -->
+    <section class="terminal-header-section">
+      <div class="terminal-prompt">
+        <span class="prompt-path">~/projects</span>
+        <span class="prompt-symbol">$</span>
+        <span class="prompt-command">ls -la</span>
+        <span class="cursor">|</span>
+      </div>
+      <p class="terminal-output-hint">
+        // the work speaks for itself
+      </p>
+    </section>
+
+    <!-- Category Filter -->
+    <section class="filter-section">
+      <div class="filter-tabs">
+        <button class="filter-tab active" data-filter="all">
+          <span class="tab-icon">*</span>
+          <span class="tab-label">all</span>
+        </button>
+        <button class="filter-tab" data-filter="security">
+          <span class="tab-icon">&#x1F6E1;</span>
+          <span class="tab-label">security</span>
+        </button>
+        <button class="filter-tab" data-filter="3d-printing">
+          <span class="tab-icon">&#x1F4E6;</span>
+          <span class="tab-label">3d</span>
+        </button>
+        <button class="filter-tab" data-filter="electronics">
+          <span class="tab-icon">&#x26A1;</span>
+          <span class="tab-label">electronics</span>
+        </button>
+        <button class="filter-tab" data-filter="python">
+          <span class="tab-icon">&#x1F40D;</span>
+          <span class="tab-label">python</span>
+        </button>
+        <button class="filter-tab" data-filter="ai">
+          <span class="tab-icon">&#x1F916;</span>
+          <span class="tab-label">ai</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="projects-section">
+      <div class="projects-grid">
+        {allProjects.length > 0 ? (
+          allProjects.map((project) => (
+            <article class="project-card" data-category={project.data.category}>
+              <div class="project-header">
+                <span class="project-type">
+                  {project.data.category === 'security' && '&#x1F6E1;'}
+                  {project.data.category === '3d-printing' && '&#x1F4E6;'}
+                  {project.data.category === 'electronics' && '&#x26A1;'}
+                  {project.data.category === 'python' && '&#x1F40D;'}
+                  {project.data.category === 'ai' && '&#x1F916;'}
+                </span>
+                <span class="project-date">{new Date(project.data.date).toISOString().split('T')[0]}</span>
+              </div>
+              <h3 class="project-title">{project.data.title}</h3>
+              <p class="project-description">{project.data.description}</p>
+              <div class="project-tags">
+                {project.data.tags?.slice(0, 3).map((tag: string) => (
+                  <span class="project-tag">{tag}</span>
+                ))}
+              </div>
+              <div class="project-links">
+                {project.data.github && (
+                  <a href={project.data.github} target="_blank" rel="noopener" class="project-link">
+                    <span>git clone</span>
+                  </a>
+                )}
+                {project.data.demo && (
+                  <a href={project.data.demo} target="_blank" rel="noopener" class="project-link">
+                    <span>./run</span>
+                  </a>
+                )}
+                <a href={`/projects/${project.slug}`} class="project-link primary">
+                  <span>cat README</span>
+                </a>
+              </div>
+            </article>
+          ))
+        ) : (
+          <div class="empty-state">
+            <div class="empty-terminal">
+              <p class="empty-prompt">~$ ls -la projects/</p>
+              <p class="empty-output">total 0</p>
+              <p class="empty-message">// projects loading... or maybe I'm still building them at 2am</p>
+            </div>
+          </div>
+        )}
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <div class="cta-content">
+        <p class="cta-text">Got a project idea that needs breaking... I mean building?</p>
+        <a href="/contact" class="cta-button">
+          <span>ping me</span>
+          <span class="cta-hint">let's make something</span>
+        </a>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .projects-page {
+    min-height: 100vh;
+    background: #0a0a0f;
+  }
+
+  /* Terminal Header */
+  .terminal-header-section {
+    padding: 6rem 1.5rem 3rem;
+    text-align: center;
+  }
+
+  .terminal-prompt {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: clamp(1.25rem, 4vw, 2rem);
+    display: inline-flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .prompt-path {
+    color: #667eea;
+  }
+
+  .prompt-symbol {
+    color: #4ecdc4;
+  }
+
+  .prompt-command {
+    color: #fff;
+  }
+
+  .cursor {
+    color: #4ecdc4;
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  .terminal-output-hint {
+    margin-top: 1rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.875rem;
+    color: #666;
+  }
+
+  /* Filter Section */
+  .filter-section {
+    padding: 0 1.5rem 3rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .filter-tabs {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .filter-tab {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 9999px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.875rem;
+    color: #888;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .filter-tab:hover {
+    background: rgba(102, 126, 234, 0.1);
+    border-color: rgba(102, 126, 234, 0.3);
+    color: #667eea;
+  }
+
+  .filter-tab.active {
+    background: rgba(78, 205, 196, 0.1);
+    border-color: rgba(78, 205, 196, 0.4);
+    color: #4ecdc4;
+  }
+
+  .tab-icon {
+    font-size: 1rem;
+  }
+
+  /* Projects Grid */
+  .projects-section {
+    padding: 0 1.5rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .project-card {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16162a 100%);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+  }
+
+  .project-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(102, 126, 234, 0.3);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  .project-type {
+    font-size: 1.5rem;
+  }
+
+  .project-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: #666;
+  }
+
+  .project-title {
+    font-size: 1.25rem;
+    color: #fff;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+  }
+
+  .project-description {
+    font-size: 0.9rem;
+    color: #888;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .project-tag {
+    padding: 0.25rem 0.625rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    color: #888;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .project-links {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .project-link {
+    padding: 0.5rem 0.875rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: #888;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .project-link:hover {
+    background: rgba(102, 126, 234, 0.1);
+    border-color: rgba(102, 126, 234, 0.3);
+    color: #667eea;
+  }
+
+  .project-link.primary {
+    background: rgba(78, 205, 196, 0.1);
+    border-color: rgba(78, 205, 196, 0.3);
+    color: #4ecdc4;
+  }
+
+  .project-link.primary:hover {
+    background: rgba(78, 205, 196, 0.2);
+  }
+
+  /* Empty State */
+  .empty-state {
+    grid-column: 1 / -1;
+    padding: 4rem 0;
+  }
+
+  .empty-terminal {
+    max-width: 500px;
+    margin: 0 auto;
+    background: #1a1a2e;
+    border-radius: 12px;
+    padding: 2rem;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .empty-prompt {
+    color: #4ecdc4;
+    margin-bottom: 0.5rem;
+  }
+
+  .empty-output {
+    color: #888;
+    margin-bottom: 1rem;
+  }
+
+  .empty-message {
+    color: #666;
+    font-size: 0.875rem;
+    font-style: italic;
+  }
+
+  /* CTA */
+  .cta-section {
+    padding: 4rem 1.5rem;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .cta-text {
+    font-size: 1.25rem;
+    color: #888;
+    margin-bottom: 2rem;
+  }
+
+  .cta-button {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+  }
+
+  .cta-hint {
+    font-size: 0.7rem;
+    opacity: 0.7;
+  }
+
+  /* Light mode */
+  :global(html.light) .projects-page {
+    background: #fafafa;
+  }
+
+  :global(html.light) .project-card {
+    background: #fff;
+    border-color: #eee;
+  }
+
+  :global(html.light) .project-title {
+    color: #111;
+  }
+
+  :global(html.light) .filter-tab {
+    background: #fff;
+    border-color: #ddd;
+    color: #666;
+  }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .filter-tabs {
+      gap: 0.375rem;
+    }
+
+    .filter-tab {
+      padding: 0.375rem 0.75rem;
+      font-size: 0.8rem;
+    }
+  }
+</style>
+
+<script>
+  // Filter functionality
+  const filterTabs = document.querySelectorAll('.filter-tab');
+  const projectCards = document.querySelectorAll('.project-card');
+
+  filterTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      // Update active tab
+      filterTabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      // Filter projects
+      const filter = tab.dataset.filter;
+
+      projectCards.forEach(card => {
+        if (filter === 'all' || card.dataset.category === filter) {
+          (card as HTMLElement).style.display = 'block';
+          (card as HTMLElement).style.animation = 'fadeIn 0.3s ease';
+        } else {
+          (card as HTMLElement).style.display = 'none';
+        }
+      });
+    });
+  });
+</script>

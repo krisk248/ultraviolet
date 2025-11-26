@@ -1,0 +1,606 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="whoami | Kannan" description="The curious explorer who breaks things to understand them">
+  <main class="about-page">
+    <!-- Terminal-style intro -->
+    <section class="intro-section">
+      <div class="terminal-window">
+        <div class="terminal-header">
+          <span class="terminal-dot red"></span>
+          <span class="terminal-dot yellow"></span>
+          <span class="terminal-dot green"></span>
+          <span class="terminal-title">whoami</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line">
+            <span class="prompt">~$</span>
+            <span class="command">whoami</span>
+          </div>
+          <div class="terminal-output">
+            <p class="output-main">Kannan</p>
+            <p class="output-sub">// curious explorer | breaker of things | builder of solutions</p>
+          </div>
+          <div class="terminal-line">
+            <span class="prompt">~$</span>
+            <span class="command">cat ~/philosophy.txt</span>
+          </div>
+          <div class="terminal-output quote">
+            <p>"Break it to understand it."</p>
+            <p class="output-sub">// if I can take it apart, I can make it better</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Story -->
+    <section class="story-section">
+      <div class="story-grid">
+        <div class="story-card">
+          <div class="card-icon">&#x1F50D;</div>
+          <h3>By Day</h3>
+          <p>DevSecOps engineer hunting vulnerabilities, automating security, and making sure systems don't fall apart. I find the holes before the bad guys do.</p>
+        </div>
+
+        <div class="story-card">
+          <div class="card-icon">&#x1F319;</div>
+          <h3>By Night</h3>
+          <p>The 2am ideas hit different. That's when I'm knee-deep in 3D prints, soldering circuits, or building Python tools that scratch my own itches.</p>
+        </div>
+
+        <div class="story-card">
+          <div class="card-icon">&#x1F9E0;</div>
+          <h3>Always</h3>
+          <p>Curious about everything. If it exists in tech, I've probably tried to learn it. Jack of all trades, master of... well, breaking things.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Quirks -->
+    <section class="quirks-section">
+      <h2 class="section-title">
+        <span class="title-prefix">const</span> quirks <span class="title-suffix">= [</span>
+      </h2>
+
+      <div class="quirks-list">
+        <div class="quirk-item">
+          <span class="quirk-bullet">"</span>
+          <span class="quirk-text">I have multiple battlestations for different moods</span>
+          <span class="quirk-bullet">",</span>
+        </div>
+        <div class="quirk-item">
+          <span class="quirk-bullet">"</span>
+          <span class="quirk-text">I talk to my code (and sometimes it talks back)</span>
+          <span class="quirk-bullet">",</span>
+        </div>
+        <div class="quirk-item">
+          <span class="quirk-bullet">"</span>
+          <span class="quirk-text">I document obsessively - future me is grateful</span>
+          <span class="quirk-bullet">",</span>
+        </div>
+        <div class="quirk-item">
+          <span class="quirk-bullet">"</span>
+          <span class="quirk-text">I prototype everything in my head before touching the keyboard</span>
+          <span class="quirk-bullet">",</span>
+        </div>
+        <div class="quirk-item">
+          <span class="quirk-bullet">"</span>
+          <span class="quirk-text">Best ideas come at 2am - the machines and I understand each other then</span>
+          <span class="quirk-bullet">"</span>
+        </div>
+      </div>
+
+      <p class="quirks-close">];</p>
+    </section>
+
+    <!-- The Stack -->
+    <section class="stack-section">
+      <h2 class="section-title">
+        <span class="title-prefix">import</span> tools <span class="title-suffix">from</span> <span class="title-string">'./brain'</span>
+      </h2>
+
+      <div class="stack-grid">
+        <div class="stack-category">
+          <h3>Languages</h3>
+          <div class="stack-items">
+            <span class="stack-tag primary">Python</span>
+            <span class="stack-tag primary">Bash</span>
+            <span class="stack-tag">JavaScript</span>
+            <span class="stack-tag">Go</span>
+            <span class="stack-tag">whatever works</span>
+          </div>
+        </div>
+
+        <div class="stack-category">
+          <h3>Security</h3>
+          <div class="stack-items">
+            <span class="stack-tag primary">Penetration Testing</span>
+            <span class="stack-tag primary">DevSecOps</span>
+            <span class="stack-tag">Threat Modeling</span>
+            <span class="stack-tag">Security Automation</span>
+          </div>
+        </div>
+
+        <div class="stack-category">
+          <h3>Hardware</h3>
+          <div class="stack-items">
+            <span class="stack-tag primary">3D Printing</span>
+            <span class="stack-tag primary">Arduino</span>
+            <span class="stack-tag">Electronics</span>
+            <span class="stack-tag">ESP32</span>
+            <span class="stack-tag">Raspberry Pi</span>
+          </div>
+        </div>
+
+        <div class="stack-category">
+          <h3>Cloud & DevOps</h3>
+          <div class="stack-items">
+            <span class="stack-tag">Docker</span>
+            <span class="stack-tag">Kubernetes</span>
+            <span class="stack-tag">CI/CD</span>
+            <span class="stack-tag">AWS</span>
+            <span class="stack-tag">Terraform</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="stack-note">
+        // I learn what I need, when I need it. The best tool is the one that solves the problem.
+      </p>
+    </section>
+
+    <!-- The Motivation -->
+    <section class="motivation-section">
+      <h2 class="section-title">
+        <span class="title-prefix">function</span> whyIBuild<span class="title-suffix">() {</span>
+      </h2>
+
+      <div class="motivation-content">
+        <div class="motivation-item">
+          <span class="motivation-icon">&#x1F9E9;</span>
+          <div>
+            <h4>Solving Problems</h4>
+            <p>I see inefficiency and I must fix it. If something can be automated, it will be.</p>
+          </div>
+        </div>
+
+        <div class="motivation-item">
+          <span class="motivation-icon">&#x1F50E;</span>
+          <div>
+            <h4>Pure Curiosity</h4>
+            <p>"I wonder if this is possible..." is how most of my projects start.</p>
+          </div>
+        </div>
+
+        <div class="motivation-item">
+          <span class="motivation-icon">&#x1F91D;</span>
+          <div>
+            <h4>Helping Others</h4>
+            <p>The best tools are the ones that make someone else's life easier.</p>
+          </div>
+        </div>
+
+        <div class="motivation-item">
+          <span class="motivation-icon">&#x1F3AF;</span>
+          <div>
+            <h4>The Challenge</h4>
+            <p>The harder it is, the more I want to crack it. Obstacles are just puzzles.</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="motivation-close">}</p>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <div class="cta-content">
+        <p class="cta-text">Want to see what happens when curiosity meets code?</p>
+        <div class="cta-buttons">
+          <a href="/projects" class="cta-primary">
+            <span>ls -la</span>
+            <span class="cta-hint">see the projects</span>
+          </a>
+          <a href="/contact" class="cta-secondary">
+            <span>ping</span>
+            <span class="cta-hint">let's talk</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .about-page {
+    min-height: 100vh;
+    background: #0a0a0f;
+    color: #e0e0e0;
+  }
+
+  /* Terminal Section */
+  .intro-section {
+    padding: 6rem 1.5rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .terminal-window {
+    max-width: 700px;
+    width: 100%;
+    background: #1a1a2e;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  }
+
+  .terminal-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    background: #16162a;
+  }
+
+  .terminal-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+  }
+
+  .terminal-dot.red { background: #ff5f56; }
+  .terminal-dot.yellow { background: #ffbd2e; }
+  .terminal-dot.green { background: #27ca40; }
+
+  .terminal-title {
+    margin-left: auto;
+    font-size: 0.75rem;
+    color: #666;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .terminal-body {
+    padding: 1.5rem;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .terminal-line {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .prompt {
+    color: #4ecdc4;
+  }
+
+  .command {
+    color: #fff;
+  }
+
+  .terminal-output {
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .output-main {
+    font-size: 1.5rem;
+    color: #667eea;
+    font-weight: 600;
+  }
+
+  .output-sub {
+    color: #666;
+    font-size: 0.875rem;
+  }
+
+  .terminal-output.quote p:first-child {
+    color: #f093fb;
+    font-size: 1.125rem;
+    font-style: italic;
+  }
+
+  /* Story Section */
+  .story-section {
+    padding: 4rem 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .story-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+
+  .story-card {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16162a 100%);
+    padding: 2rem;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+  }
+
+  .story-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(102, 126, 234, 0.3);
+    box-shadow: 0 10px 40px rgba(102, 126, 234, 0.1);
+  }
+
+  .card-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .story-card h3 {
+    color: #fff;
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .story-card p {
+    color: #888;
+    line-height: 1.7;
+  }
+
+  /* Quirks Section */
+  .quirks-section {
+    padding: 4rem 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    color: #888;
+  }
+
+  .title-prefix {
+    color: #ff79c6;
+  }
+
+  .title-suffix {
+    color: #f8f8f2;
+  }
+
+  .title-string {
+    color: #f1fa8c;
+  }
+
+  .quirks-list {
+    padding-left: 2rem;
+  }
+
+  .quirk-item {
+    padding: 0.75rem 0;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .quirk-bullet {
+    color: #f1fa8c;
+  }
+
+  .quirk-text {
+    color: #f1fa8c;
+  }
+
+  .quirks-close {
+    font-family: 'JetBrains Mono', monospace;
+    color: #888;
+    margin-top: 1rem;
+  }
+
+  /* Stack Section */
+  .stack-section {
+    padding: 4rem 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .stack-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .stack-category h3 {
+    color: #fff;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .stack-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .stack-tag {
+    padding: 0.375rem 0.75rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 9999px;
+    font-size: 0.8rem;
+    color: #888;
+    transition: all 0.2s ease;
+  }
+
+  .stack-tag:hover {
+    background: rgba(102, 126, 234, 0.1);
+    border-color: rgba(102, 126, 234, 0.3);
+    color: #667eea;
+  }
+
+  .stack-tag.primary {
+    background: rgba(78, 205, 196, 0.1);
+    border-color: rgba(78, 205, 196, 0.3);
+    color: #4ecdc4;
+  }
+
+  .stack-note {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.875rem;
+    color: #666;
+    font-style: italic;
+  }
+
+  /* Motivation Section */
+  .motivation-section {
+    padding: 4rem 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .motivation-content {
+    display: grid;
+    gap: 1.5rem;
+    padding-left: 2rem;
+  }
+
+  .motivation-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .motivation-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  .motivation-item h4 {
+    color: #4ecdc4;
+    margin-bottom: 0.25rem;
+  }
+
+  .motivation-item p {
+    color: #888;
+    font-size: 0.9rem;
+  }
+
+  .motivation-close {
+    font-family: 'JetBrains Mono', monospace;
+    color: #888;
+    margin-top: 2rem;
+  }
+
+  /* CTA Section */
+  .cta-section {
+    padding: 6rem 1.5rem;
+    text-align: center;
+  }
+
+  .cta-text {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 2rem;
+  }
+
+  .cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .cta-primary,
+  .cta-secondary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .cta-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+  }
+
+  .cta-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+  }
+
+  .cta-secondary {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #4ecdc4;
+  }
+
+  .cta-secondary:hover {
+    background: rgba(78, 205, 196, 0.1);
+    border-color: #4ecdc4;
+  }
+
+  .cta-hint {
+    font-size: 0.7rem;
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  /* Light mode */
+  :global(html.light) .about-page {
+    background: #fafafa;
+    color: #333;
+  }
+
+  :global(html.light) .terminal-window {
+    background: #fff;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  }
+
+  :global(html.light) .terminal-header {
+    background: #f5f5f5;
+  }
+
+  :global(html.light) .story-card {
+    background: #fff;
+    border-color: #eee;
+  }
+
+  :global(html.light) .story-card h3 {
+    color: #111;
+  }
+
+  :global(html.light) .story-card p {
+    color: #666;
+  }
+
+  :global(html.light) .cta-text {
+    color: #111;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .intro-section {
+      padding: 4rem 1rem;
+    }
+
+    .terminal-body {
+      padding: 1rem;
+    }
+
+    .output-main {
+      font-size: 1.25rem;
+    }
+
+    .section-title {
+      font-size: 1rem;
+    }
+
+    .quirks-list,
+    .motivation-content {
+      padding-left: 1rem;
+    }
+  }
+</style>

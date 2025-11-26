@@ -1,0 +1,100 @@
+---
+import Navigation from './Navigation.astro';
+import ThemeToggle from './ThemeToggle.vue';
+---
+
+<header class="header">
+  <div class="header-inner">
+    <!-- Logo - Creative terminal-style -->
+    <a href="/" class="logo group">
+      <span class="logo-prompt">~$</span>
+      <span class="logo-text">kannan</span>
+      <span class="logo-cursor">_</span>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <Navigation />
+
+    <!-- Theme Toggle -->
+    <ThemeToggle client:only="vue" />
+  </div>
+</header>
+
+<style>
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(10, 10, 15, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    font-size: 1.125rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .logo:hover {
+    transform: translateX(4px);
+  }
+
+  .logo-prompt {
+    color: #4ecdc4;
+    opacity: 0.7;
+  }
+
+  .logo-text {
+    color: #fff;
+    font-weight: 600;
+  }
+
+  .logo-cursor {
+    color: #4ecdc4;
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  .logo:hover .logo-prompt {
+    color: #667eea;
+    opacity: 1;
+  }
+
+  .logo:hover .logo-cursor {
+    color: #667eea;
+  }
+
+  /* Light mode */
+  :global(html.light) .header {
+    background: rgba(255, 255, 255, 0.85);
+    border-color: rgba(0, 0, 0, 0.05);
+  }
+
+  :global(html.light) .logo-text {
+    color: #111;
+  }
+
+  :global(html.light) .logo-prompt,
+  :global(html.light) .logo-cursor {
+    color: #667eea;
+  }
+</style>

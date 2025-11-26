@@ -1,0 +1,123 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import ThemePreview from '@components/interactive/ThemePreview.vue';
+---
+
+<BaseLayout title="Interactive Playground - Kannan" description="Interactive demos and tools showcasing my projects and ideas">
+  <main class="min-h-screen bg-dark-900">
+    <!-- Page Header -->
+    <section class="section-padding border-b border-dark-700 bg-gradient-to-b from-dark-800 to-dark-900">
+      <div class="container-custom">
+        <h1 class="text-5xl font-bold mb-4">Interactive Playground</h1>
+        <p class="text-xl text-dark-400 max-w-2xl">
+          Explore interactive demos, tools, and experiments
+        </p>
+      </div>
+    </section>
+
+    <!-- Interactive Content -->
+    <section class="section-padding">
+      <div class="container-custom">
+        <!-- Theme Preview -->
+        <div class="mb-16">
+          <h2 class="text-3xl font-bold mb-8">Theme Customization</h2>
+          <ThemePreview client:only="vue" />
+        </div>
+
+        <!-- More Interactive Components -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <!-- Code Examples -->
+          <div class="card">
+            <h3 class="text-2xl font-bold mb-4">Code Examples</h3>
+            <p class="text-dark-400 mb-4">
+              Interactive code samples and documentation coming soon.
+            </p>
+            <pre class="bg-dark-700 p-4 rounded text-sm text-dark-200 overflow-auto mb-4"><code>{`// Example: Security Scanner
+async function scanSecurityHeaders(url) {
+  const response = await fetch(url);
+  const headers = response.headers;
+
+  return {
+    csp: headers.get('content-security-policy'),
+    hsts: headers.get('strict-transport-security'),
+    xframe: headers.get('x-frame-options'),
+  };
+}`}</code></pre>
+          </div>
+
+          <!-- Tool Demo -->
+          <div class="card">
+            <h3 class="text-2xl font-bold mb-4">Tools & Utilities</h3>
+            <p class="text-dark-400 mb-4">
+              Various tools and utilities for development and security testing.
+            </p>
+            <div class="space-y-2">
+              <button class="w-full btn btn-secondary text-left">
+                JWT Decoder
+              </button>
+              <button class="w-full btn btn-secondary text-left">
+                Hash Generator
+              </button>
+              <button class="w-full btn btn-secondary text-left">
+                Base64 Encoder/Decoder
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Animation Showcase -->
+        <div class="mt-12">
+          <h2 class="text-3xl font-bold mb-8">Animation & Effects</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="card h-32 flex items-center justify-center rounded-lg overflow-hidden relative group">
+              <div class="absolute inset-0 bg-gradient-to-r from-primary-600 to-accent-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div class="relative text-center">
+                <div class="text-3xl mb-2">✨</div>
+                <p class="font-semibold">Fade Animation</p>
+              </div>
+            </div>
+
+            <div class="card h-32 flex items-center justify-center rounded-lg group">
+              <div class="text-center group-hover:scale-110 transition-transform duration-300">
+                <div class="text-3xl mb-2">🎨</div>
+                <p class="font-semibold">Scale Effect</p>
+              </div>
+            </div>
+
+            <div class="card h-32 flex items-center justify-center rounded-lg group">
+              <div class="text-center group-hover:translate-y-2 transition-transform duration-300">
+                <div class="text-3xl mb-2">⬇️</div>
+                <p class="font-semibold">Slide Down</p>
+              </div>
+            </div>
+
+            <div class="card h-32 flex items-center justify-center rounded-lg">
+              <div class="text-center animate-pulse">
+                <div class="text-3xl mb-2">💫</div>
+                <p class="font-semibold">Pulse</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style is:inline>
+  html.light main {
+    @apply bg-white;
+  }
+
+  html.light section {
+    @apply bg-gradient-to-b from-dark-50 to-white;
+  }
+
+  html.light .text-dark-400 {
+    @apply text-dark-600;
+  }
+
+  html.light pre {
+    @apply bg-dark-100;
+  }
+</style>

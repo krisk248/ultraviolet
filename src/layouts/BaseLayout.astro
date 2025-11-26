@@ -1,0 +1,216 @@
+---
+import '../styles/global.css';
+import Header from '@components/layout/Header.astro';
+import Footer from '@components/layout/Footer.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+}
+
+const { title, description = 'Portfolio website for DevSecOps Engineer and Maker', image = '/og-image.png' } = Astro.props;
+const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astro.url;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+
+    <!-- Canonical -->
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, Astro.url)} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={Astro.url} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+    <!-- Additional Meta -->
+    <meta name="theme-color" content="#0c4a6e" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  </head>
+  <body>
+    <Header />
+    <main class="min-h-screen">
+      <slot />
+    </main>
+    <Footer />
+
+    <script>
+      // Theme toggle functionality
+      const theme = localStorage.getItem('theme') ||
+                    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+      if (theme === 'light') {
+        document.documentElement.classList.add('light');
+      } else {
+        document.documentElement.classList.remove('light');
+      }
+
+      // Listen for changes
+      document.addEventListener('theme-changed', (e: any) => {
+        localStorage.setItem('theme', e.detail.theme);
+        if (e.detail.theme === 'light') {
+          document.documentElement.classList.add('light');
+        } else {
+          document.documentElement.classList.remove('light');
+        }
+      });
+
+      // Easter Egg: Console message for curious devs
+      console.log(`
+%c  _
+%c | | ____ _ _ __  _ __   __ _ _ __
+%c | |/ / _\` | '_ \\| '_ \\ / _\` | '_ \\
+%c |   < (_| | | | | | | | (_| | | | |
+%c |_|\\_\\__,_|_| |_|_| |_|\\__,_|_| |_|
+%c
+%c Hey there, fellow curious soul! 👋
+%c
+%c You're looking at the source? I like you already.
+%c Type 'hire()' in the console for a surprise.
+%c
+%c Built with: Astro + Vue + midnight caffeine
+%c Secret: Try the Konami code on any page ;)
+      `,
+        'color: #4ecdc4; font-weight: bold;',
+        'color: #4ecdc4; font-weight: bold;',
+        'color: #4ecdc4; font-weight: bold;',
+        'color: #4ecdc4; font-weight: bold;',
+        'color: #4ecdc4; font-weight: bold;',
+        'color: #4ecdc4;',
+        'color: #667eea; font-size: 14px;',
+        'color: #888;',
+        'color: #888;',
+        'color: #fff; font-weight: bold;',
+        'color: #888;',
+        'color: #666; font-style: italic;',
+        'color: #666; font-style: italic;'
+      );
+
+      // Console function easter egg
+      (window as any).hire = function() {
+        console.log('%c🎉 You found the secret!', 'font-size: 20px;');
+        console.log('%cRedirecting to contact...', 'color: #4ecdc4;');
+        setTimeout(() => {
+          window.location.href = '/contact';
+        }, 1000);
+      };
+
+      // Konami Code Easter Egg
+      const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+      let konamiIndex = 0;
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === konamiCode[konamiIndex]) {
+          konamiIndex++;
+          if (konamiIndex === konamiCode.length) {
+            konamiIndex = 0;
+            activateKonamiMode();
+          }
+        } else {
+          konamiIndex = 0;
+        }
+      });
+
+      function activateKonamiMode() {
+        // Create matrix-style effect
+        const overlay = document.createElement('div');
+        overlay.id = 'konami-overlay';
+        overlay.innerHTML = `
+          <div class="konami-content">
+            <pre style="color: #4ecdc4; font-family: monospace; font-size: 14px;">
+> ACCESS GRANTED
+> Welcome, fellow hacker
+> You found the secret code!
+>
+> "The best way to predict the future
+>  is to break it first."
+>        - probably me at 2am
+>
+> Press any key to return...
+            </pre>
+          </div>
+        `;
+        overlay.style.cssText = `
+          position: fixed;
+          inset: 0;
+          background: rgba(10, 10, 15, 0.98);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 9999;
+          animation: fadeIn 0.3s ease;
+        `;
+        document.body.appendChild(overlay);
+
+        // Add matrix rain effect
+        const canvas = document.createElement('canvas');
+        canvas.style.cssText = 'position: absolute; inset: 0; opacity: 0.1;';
+        overlay.insertBefore(canvas, overlay.firstChild);
+
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()';
+        const fontSize = 14;
+        const columns = canvas.width / fontSize;
+        const drops: number[] = [];
+
+        for (let i = 0; i < columns; i++) {
+          drops[i] = Math.random() * canvas.height / fontSize;
+        }
+
+        function draw() {
+          if (!ctx) return;
+          ctx.fillStyle = 'rgba(10, 10, 15, 0.05)';
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+          ctx.fillStyle = '#4ecdc4';
+          ctx.font = fontSize + 'px monospace';
+
+          for (let i = 0; i < drops.length; i++) {
+            const text = chars[Math.floor(Math.random() * chars.length)];
+            ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+            if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+              drops[i] = 0;
+            }
+            drops[i]++;
+          }
+        }
+
+        const matrixInterval = setInterval(draw, 50);
+
+        // Remove on keypress
+        const removeOverlay = () => {
+          clearInterval(matrixInterval);
+          overlay.remove();
+          document.removeEventListener('keydown', removeOverlay);
+        };
+
+        setTimeout(() => {
+          document.addEventListener('keydown', removeOverlay);
+        }, 100);
+      }
+    </script>
+  </body>
+</html>
