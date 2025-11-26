@@ -1,0 +1,964 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Services - Sovereign Cloud & DevSecOps Solutions"
+  description="Private cloud infrastructure, DevSecOps pipelines, and security monitoring for UAE businesses. Own your data, secure your future."
+>
+  <div class="services-page">
+    <!-- Hero Section -->
+    <section class="services-hero">
+      <div class="container">
+        <div class="terminal-header">
+          <span class="terminal-title">~/services</span>
+          <span class="terminal-status">LIVE</span>
+        </div>
+        <div class="hero-content">
+          <h1 class="hero-title">
+            <span class="line-prefix">$</span> Own Your Infrastructure
+          </h1>
+          <p class="hero-subtitle">
+            Stop renting your data to Big Tech.<br/>
+            Build sovereign, secure, self-hosted systems.
+          </p>
+          <div class="hero-location">
+            <span class="location-icon">&#x1F4CD;</span>
+            <span>Based in Dubai, UAE</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem-section">
+      <div class="container">
+        <div class="terminal-block">
+          <div class="terminal-bar">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <span class="terminal-label">the_problem.sh</span>
+          </div>
+          <div class="terminal-content">
+            <p class="code-line"><span class="prompt">$</span> <span class="cmd">cat</span> /var/log/reality.log</p>
+            <p class="output error">[WARN] Your data on AWS/Google = Not your data</p>
+            <p class="output error">[WARN] Monthly SaaS bills eating your profits</p>
+            <p class="output error">[WARN] One breach = reputation destroyed</p>
+            <p class="output error">[WARN] UAE compliance? Hope you read the fine print</p>
+            <p class="code-line"><span class="prompt">$</span> <span class="cmd">./solution</span> --provider=phonix</p>
+            <p class="output success">[OK] Initializing Sovereign Cloud...</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="services-grid-section">
+      <div class="container">
+        <h2 class="section-title">
+          <span class="prompt">$</span> ls -la ./services/
+        </h2>
+
+        <div class="services-grid">
+          <!-- Service 1: Secure Office Hub -->
+          <div class="service-card" data-service="hub">
+            <div class="card-header">
+              <span class="service-icon">&#x1F3E2;</span>
+              <span class="service-badge">MOST POPULAR</span>
+            </div>
+            <h3 class="service-name">Secure Office Hub</h3>
+            <p class="service-tagline">Your private cloud, your office</p>
+
+            <div class="service-for">
+              <span class="label">Perfect for:</span>
+              <span class="targets">Law Firms, Clinics, Real Estate, HNWIs</span>
+            </div>
+
+            <ul class="service-features">
+              <li><span class="feature-icon">&#x2601;</span> Private Cloud Storage <span class="replaces">(bye Dropbox)</span></li>
+              <li><span class="feature-icon">&#x1F511;</span> Password Manager <span class="replaces">(bye LastPass)</span></li>
+              <li><span class="feature-icon">&#x1F4AC;</span> Secure Team Chat <span class="replaces">(bye WhatsApp)</span></li>
+              <li><span class="feature-icon">&#x1F310;</span> VPN Access <span class="replaces">(work from anywhere)</span></li>
+            </ul>
+
+            <div class="service-result">
+              <span class="result-label">Result:</span>
+              <span class="result-text">Files never leave your building. Ever.</span>
+            </div>
+          </div>
+
+          <!-- Service 2: DevSecOps Factory -->
+          <div class="service-card" data-service="devsecops">
+            <div class="card-header">
+              <span class="service-icon">&#x2699;</span>
+              <span class="service-badge tech">FOR DEVS</span>
+            </div>
+            <h3 class="service-name">DevSecOps Factory</h3>
+            <p class="service-tagline">Your code pipeline, your control</p>
+
+            <div class="service-for">
+              <span class="label">Perfect for:</span>
+              <span class="targets">Dev Agencies, Startups, Software Houses</span>
+            </div>
+
+            <ul class="service-features">
+              <li><span class="feature-icon">&#x1F4BB;</span> Private Git Repos <span class="replaces">(your IP stays yours)</span></li>
+              <li><span class="feature-icon">&#x1F680;</span> CI/CD Pipelines <span class="replaces">(automated deploys)</span></li>
+              <li><span class="feature-icon">&#x1F50D;</span> Code Quality Gates <span class="replaces">(catch bugs early)</span></li>
+              <li><span class="feature-icon">&#x1F4E6;</span> Container Registry <span class="replaces">(private Docker hub)</span></li>
+            </ul>
+
+            <div class="service-result">
+              <span class="result-label">Result:</span>
+              <span class="result-text">Ship faster. Sleep better.</span>
+            </div>
+          </div>
+
+          <!-- Service 3: Security Guardian -->
+          <div class="service-card" data-service="security">
+            <div class="card-header">
+              <span class="service-icon">&#x1F6E1;</span>
+              <span class="service-badge security">MY SPECIALTY</span>
+            </div>
+            <h3 class="service-name">Security Guardian</h3>
+            <p class="service-tagline">24/7 watchdog for your systems</p>
+
+            <div class="service-for">
+              <span class="label">Perfect for:</span>
+              <span class="targets">SMEs needing ISO 27001, NES compliance</span>
+            </div>
+
+            <ul class="service-features">
+              <li><span class="feature-icon">&#x1F41B;</span> Vulnerability Scanner <span class="replaces">(find holes first)</span></li>
+              <li><span class="feature-icon">&#x1F440;</span> SIEM Monitoring <span class="replaces">(real-time alerts)</span></li>
+              <li><span class="feature-icon">&#x1F4CA;</span> Security Dashboard <span class="replaces">(executive reports)</span></li>
+              <li><span class="feature-icon">&#x1F4DD;</span> Compliance Tracking <span class="replaces">(audit-ready)</span></li>
+            </ul>
+
+            <div class="service-result">
+              <span class="result-label">Result:</span>
+              <span class="result-text">Know your risks before hackers do.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Demo Section -->
+    <section class="demo-section">
+      <div class="container">
+        <div class="demo-content">
+          <div class="demo-text">
+            <h2 class="demo-title">The Portable Datacenter</h2>
+            <p class="demo-subtitle">I don't do PowerPoint. I do live demos.</p>
+
+            <div class="demo-description">
+              <p>
+                I carry a <strong>flight-case datacenter</strong> to your office or favorite coffee shop.
+                Plug it in. Connect to WiFi. Watch your private cloud spin up in 60 seconds.
+              </p>
+              <p class="demo-highlight">
+                "This entire system is running right here. No internet required.
+                No data leaves this table."
+              </p>
+            </div>
+
+            <div class="demo-features">
+              <div class="demo-feature">
+                <span class="feature-num">01</span>
+                <span class="feature-text">Plug in one cable</span>
+              </div>
+              <div class="demo-feature">
+                <span class="feature-num">02</span>
+                <span class="feature-text">Connect to secure WiFi</span>
+              </div>
+              <div class="demo-feature">
+                <span class="feature-num">03</span>
+                <span class="feature-text">Experience your private cloud</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="demo-visual">
+            <div class="case-animation">
+              <div class="case-outer">
+                <div class="case-inner">
+                  <div class="rack-lights">
+                    <span class="light active"></span>
+                    <span class="light active delay-1"></span>
+                    <span class="light active delay-2"></span>
+                    <span class="light"></span>
+                  </div>
+                  <div class="rack-text">SOVEREIGN CLOUD</div>
+                  <div class="rack-status">
+                    <span class="status-dot"></span>
+                    <span>OPERATIONAL</span>
+                  </div>
+                </div>
+              </div>
+              <div class="case-label">Portable. Powerful. Private.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section">
+      <div class="container">
+        <h2 class="section-title">
+          <span class="prompt">$</span> ./how-it-works.sh
+        </h2>
+
+        <div class="process-steps">
+          <div class="process-step">
+            <div class="step-number">01</div>
+            <div class="step-content">
+              <h3>Free Assessment</h3>
+              <p>I scan your current setup. Find the gaps. Show you the risks. No cost, no obligation.</p>
+              <span class="step-duration">1 day</span>
+            </div>
+          </div>
+
+          <div class="process-connector"></div>
+
+          <div class="process-step">
+            <div class="step-number">02</div>
+            <div class="step-content">
+              <h3>Architecture Design</h3>
+              <p>Custom solution blueprint. Hardware specs. Software stack. Security layers. All documented.</p>
+              <span class="step-duration">3-5 days</span>
+            </div>
+          </div>
+
+          <div class="process-connector"></div>
+
+          <div class="process-step">
+            <div class="step-number">03</div>
+            <div class="step-content">
+              <h3>Deploy & Train</h3>
+              <p>I build it. Install it. Train your team. You own it forever. I maintain it monthly.</p>
+              <span class="step-duration">1-2 weeks</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2 class="cta-title">Ready to Own Your Infrastructure?</h2>
+          <p class="cta-subtitle">Book a free security assessment. I'll show you what you're missing.</p>
+
+          <div class="cta-buttons">
+            <a href="/contact" class="btn-primary">
+              <span class="btn-icon">&#x1F4E7;</span>
+              <span>Get in Touch</span>
+            </a>
+          </div>
+
+          <p class="cta-note">Based in Dubai. Available across UAE and remote worldwide.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .services-page {
+    background: var(--bg-dark, #0a0a0f);
+    color: #e0e0e0;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* Hero Section */
+  .services-hero {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    padding: 6rem 0 4rem;
+    background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #0a0a0f 100%);
+  }
+
+  .terminal-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .terminal-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.875rem;
+    color: #666;
+  }
+
+  .terminal-status {
+    font-size: 0.625rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding: 0.25rem 0.5rem;
+    background: rgba(78, 205, 196, 0.2);
+    color: #4ecdc4;
+    border-radius: 4px;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 800;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+  }
+
+  .line-prefix {
+    color: #4ecdc4;
+    margin-right: 0.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    color: #888;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  .hero-location {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    color: #888;
+  }
+
+  /* Problem Section */
+  .problem-section {
+    padding: 4rem 0;
+    background: #0d0d12;
+  }
+
+  .terminal-block {
+    background: #0a0a0f;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #222;
+  }
+
+  .terminal-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    background: #1a1a1a;
+    border-bottom: 1px solid #222;
+  }
+
+  .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+  }
+
+  .dot.red { background: #ff5f56; }
+  .dot.yellow { background: #ffbd2e; }
+  .dot.green { background: #27c93f; }
+
+  .terminal-label {
+    margin-left: auto;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: #666;
+  }
+
+  .terminal-content {
+    padding: 1.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.875rem;
+    line-height: 1.8;
+  }
+
+  .code-line {
+    margin: 0.5rem 0;
+  }
+
+  .prompt {
+    color: #4ecdc4;
+    margin-right: 0.5rem;
+  }
+
+  .cmd {
+    color: #667eea;
+  }
+
+  .output {
+    padding-left: 1rem;
+    margin: 0.25rem 0;
+  }
+
+  .output.error {
+    color: #ff6b6b;
+  }
+
+  .output.success {
+    color: #4ecdc4;
+  }
+
+  /* Services Grid */
+  .services-grid-section {
+    padding: 6rem 0;
+  }
+
+  .section-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 3rem;
+  }
+
+  .section-title .prompt {
+    color: #4ecdc4;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 2rem;
+  }
+
+  .service-card {
+    background: linear-gradient(135deg, #1a1a2e 0%, #0d0d12 100%);
+    border: 1px solid #222;
+    border-radius: 16px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #667eea, #4ecdc4);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .service-card:hover {
+    transform: translateY(-5px);
+    border-color: #333;
+  }
+
+  .service-card:hover::before {
+    opacity: 1;
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+
+  .service-icon {
+    font-size: 2.5rem;
+  }
+
+  .service-badge {
+    font-size: 0.625rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding: 0.25rem 0.75rem;
+    background: rgba(102, 126, 234, 0.2);
+    color: #667eea;
+    border-radius: 9999px;
+  }
+
+  .service-badge.tech {
+    background: rgba(78, 205, 196, 0.2);
+    color: #4ecdc4;
+  }
+
+  .service-badge.security {
+    background: rgba(255, 107, 107, 0.2);
+    color: #ff6b6b;
+  }
+
+  .service-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .service-tagline {
+    font-size: 0.875rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+  }
+
+  .service-for {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-bottom: 1.5rem;
+    padding: 0.75rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+  }
+
+  .service-for .label {
+    font-size: 0.75rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .service-for .targets {
+    font-size: 0.875rem;
+    color: #4ecdc4;
+  }
+
+  .service-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+  }
+
+  .service-features li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 0.875rem;
+  }
+
+  .service-features li:last-child {
+    border-bottom: none;
+  }
+
+  .feature-icon {
+    font-size: 1rem;
+  }
+
+  .replaces {
+    margin-left: auto;
+    font-size: 0.75rem;
+    color: #666;
+  }
+
+  .service-result {
+    padding: 1rem;
+    background: rgba(78, 205, 196, 0.1);
+    border-radius: 8px;
+    border-left: 3px solid #4ecdc4;
+  }
+
+  .result-label {
+    font-size: 0.75rem;
+    color: #4ecdc4;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .result-text {
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  /* Demo Section */
+  .demo-section {
+    padding: 6rem 0;
+    background: linear-gradient(180deg, #0a0a0f 0%, #1a1a2e 50%, #0a0a0f 100%);
+  }
+
+  .demo-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  @media (max-width: 900px) {
+    .demo-content {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+  }
+
+  .demo-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+  }
+
+  .demo-subtitle {
+    font-size: 1.125rem;
+    color: #4ecdc4;
+    margin-bottom: 2rem;
+  }
+
+  .demo-description {
+    color: #888;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+
+  .demo-description strong {
+    color: #fff;
+  }
+
+  .demo-highlight {
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-left: 3px solid #667eea;
+    font-style: italic;
+    color: #aaa;
+    margin-top: 1rem;
+  }
+
+  .demo-features {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .demo-feature {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .feature-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #4ecdc4;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(78, 205, 196, 0.1);
+    border-radius: 8px;
+  }
+
+  .feature-text {
+    font-size: 1rem;
+    color: #ccc;
+  }
+
+  /* Case Animation */
+  .demo-visual {
+    display: flex;
+    justify-content: center;
+  }
+
+  .case-animation {
+    text-align: center;
+  }
+
+  .case-outer {
+    width: 280px;
+    height: 200px;
+    background: linear-gradient(135deg, #2a2a3e 0%, #1a1a2e 100%);
+    border: 3px solid #333;
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    position: relative;
+  }
+
+  .case-outer::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    border: 1px solid #444;
+    border-radius: 8px;
+  }
+
+  .case-inner {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .rack-lights {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .light {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #333;
+  }
+
+  .light.active {
+    background: #4ecdc4;
+    box-shadow: 0 0 10px #4ecdc4;
+    animation: blink 1s infinite;
+  }
+
+  .light.delay-1 { animation-delay: 0.2s; }
+  .light.delay-2 { animation-delay: 0.4s; }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  .rack-text {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: #4ecdc4;
+  }
+
+  .rack-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.625rem;
+    color: #666;
+    letter-spacing: 0.1em;
+  }
+
+  .status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #27c93f;
+    animation: pulse 2s infinite;
+  }
+
+  .case-label {
+    margin-top: 1.5rem;
+    font-size: 0.875rem;
+    color: #666;
+    letter-spacing: 0.1em;
+  }
+
+  /* Process Section */
+  .process-section {
+    padding: 6rem 0;
+    background: #0d0d12;
+  }
+
+  .process-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .process-step {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem 0;
+  }
+
+  .step-number {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 3rem;
+    font-weight: 900;
+    color: #222;
+    line-height: 1;
+    min-width: 80px;
+  }
+
+  .step-content h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .step-content p {
+    color: #888;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+  }
+
+  .step-duration {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: #4ecdc4;
+    background: rgba(78, 205, 196, 0.1);
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+  }
+
+  .process-connector {
+    width: 2px;
+    height: 40px;
+    background: linear-gradient(to bottom, #333, #222);
+    margin-left: 40px;
+  }
+
+  /* CTA Section */
+  .cta-section {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, #1a1a2e 0%, #0a0a0f 100%);
+  }
+
+  .cta-content {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .cta-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+  }
+
+  .cta-subtitle {
+    font-size: 1.125rem;
+    color: #888;
+    margin-bottom: 2rem;
+  }
+
+  .cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 9999px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 40px rgba(102, 126, 234, 0.4);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: #4ecdc4;
+    border: 1px solid #4ecdc4;
+  }
+
+  .btn-secondary:hover {
+    background: rgba(78, 205, 196, 0.1);
+  }
+
+  .cta-note {
+    font-size: 0.875rem;
+    color: #666;
+  }
+
+  /* Light mode */
+  :global(html.light) .services-page {
+    background: #fafafa;
+    color: #333;
+  }
+
+  :global(html.light) .services-hero {
+    background: linear-gradient(135deg, #ffffff 0%, #f0f0f5 50%, #ffffff 100%);
+  }
+
+  :global(html.light) .problem-section,
+  :global(html.light) .process-section {
+    background: #f5f5f7;
+  }
+
+  :global(html.light) .terminal-block {
+    background: #fff;
+    border-color: #ddd;
+  }
+
+  :global(html.light) .terminal-bar {
+    background: #f0f0f0;
+    border-color: #ddd;
+  }
+
+  :global(html.light) .service-card {
+    background: linear-gradient(135deg, #fff 0%, #f5f5f7 100%);
+    border-color: #ddd;
+  }
+
+  :global(html.light) .hero-subtitle,
+  :global(html.light) .service-tagline,
+  :global(html.light) .demo-description,
+  :global(html.light) .step-content p,
+  :global(html.light) .cta-subtitle {
+    color: #666;
+  }
+
+  :global(html.light) .step-number {
+    color: #ddd;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .services-hero {
+      min-height: auto;
+      padding: 4rem 0 3rem;
+    }
+
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .process-step {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .step-number {
+      font-size: 2rem;
+    }
+
+    .process-connector {
+      margin-left: 0;
+      width: 40px;
+      height: 2px;
+    }
+  }
+</style>
