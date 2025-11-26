@@ -1,110 +1,454 @@
 ---
 const currentYear = new Date().getFullYear();
+const buildTime = new Date().toISOString().split('T')[0];
 ---
 
-<footer class="border-t border-dark-700 bg-dark-900/50 backdrop-blur-sm mt-20">
-  <div class="container-custom section-padding">
-    <!-- Footer Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-      <!-- Brand Column -->
-      <div>
-        <div class="flex items-center gap-2 mb-4">
-          <div class="w-8 h-8 bg-gradient-to-br from-primary-500 to-accent-600 rounded-lg flex items-center justify-center text-white font-bold">
-            K
-          </div>
-          <span class="font-bold bg-gradient-to-r from-primary-500 to-accent-600 bg-clip-text text-transparent">
-            Kannan
-          </span>
+<footer class="site-footer">
+  <div class="footer-container">
+    <!-- Terminal Output Section -->
+    <div class="footer-terminal">
+      <div class="terminal-line">
+        <span class="prompt">~$</span>
+        <span class="command">neofetch</span>
+      </div>
+      <div class="neofetch-output">
+        <div class="ascii-art">
+          <pre>{`
+  _  __
+ | |/ /__ _ _ __  _ __   __ _ _ __
+ | ' // _\` | '_ \\| '_ \\ / _\` | '_ \\
+ | . \\ (_| | | | | | | | (_| | | | |
+ |_|\\_\\__,_|_| |_|_| |_|\\__,_|_| |_|
+          `}</pre>
         </div>
-        <p class="text-dark-400 text-sm">
-          DevSecOps Engineer & Maker Generalist. Building secure, innovative solutions.
-        </p>
-      </div>
-
-      <!-- Quick Links -->
-      <div>
-        <h3 class="font-semibold text-dark-100 mb-4">Navigation</h3>
-        <ul class="space-y-2 text-sm">
-          <li>
-            <a href="/" class="text-dark-400 hover:text-primary-500 transition-colors">Home</a>
-          </li>
-          <li>
-            <a href="/about" class="text-dark-400 hover:text-primary-500 transition-colors">About</a>
-          </li>
-          <li>
-            <a href="/projects" class="text-dark-400 hover:text-primary-500 transition-colors">Projects</a>
-          </li>
-          <li>
-            <a href="/blog" class="text-dark-400 hover:text-primary-500 transition-colors">Blog</a>
-          </li>
-        </ul>
-      </div>
-
-      <!-- Social Links -->
-      <div>
-        <h3 class="font-semibold text-dark-100 mb-4">Social</h3>
-        <ul class="space-y-2 text-sm">
-          <li>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="text-dark-400 hover:text-primary-500 transition-colors">
-              GitHub
-            </a>
-          </li>
-          <li>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="text-dark-400 hover:text-primary-500 transition-colors">
-              LinkedIn
-            </a>
-          </li>
-          <li>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="text-dark-400 hover:text-primary-500 transition-colors">
-              Twitter
-            </a>
-          </li>
-          <li>
-            <a href="https://email.com" class="text-dark-400 hover:text-primary-500 transition-colors">
-              Email
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      <!-- Contact -->
-      <div>
-        <h3 class="font-semibold text-dark-100 mb-4">Contact</h3>
-        <p class="text-dark-400 text-sm mb-2">
-          Interested in working together?
-        </p>
-        <a href="/contact" class="btn btn-accent text-sm">
-          Get In Touch
-        </a>
+        <div class="system-info">
+          <div class="info-line"><span class="info-key">OS:</span> Human v1.0</div>
+          <div class="info-line"><span class="info-key">Role:</span> DevSecOps + Maker</div>
+          <div class="info-line"><span class="info-key">Shell:</span> caffeinated-bash</div>
+          <div class="info-line"><span class="info-key">Uptime:</span> since forever</div>
+          <div class="info-line"><span class="info-key">Status:</span> <span class="status-online">building things</span></div>
+        </div>
       </div>
     </div>
 
-    <!-- Divider -->
-    <div class="border-t border-dark-700 pt-8">
-      <!-- Bottom Section -->
-      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-dark-400">
-        <p>
-          &copy; {currentYear} Kannan. All rights reserved.
-        </p>
-        <div class="flex gap-6">
-          <a href="/privacy" class="hover:text-primary-500 transition-colors">Privacy Policy</a>
-          <a href="/terms" class="hover:text-primary-500 transition-colors">Terms of Service</a>
+    <!-- Navigation Grid -->
+    <div class="footer-grid">
+      <!-- Quick Nav -->
+      <div class="footer-section">
+        <h3 class="section-title">
+          <span class="title-prompt">~/</span>nav
+        </h3>
+        <nav class="nav-list">
+          <a href="/" class="nav-item"><span class="nav-prefix">./</span>home</a>
+          <a href="/about" class="nav-item"><span class="nav-prefix">./</span>whoami</a>
+          <a href="/projects" class="nav-item"><span class="nav-prefix">./</span>projects</a>
+          <a href="/blog" class="nav-item"><span class="nav-prefix">./</span>thoughts</a>
+          <a href="/interactive" class="nav-item"><span class="nav-prefix">./</span>playground</a>
+          <a href="/contact" class="nav-item"><span class="nav-prefix">./</span>ping</a>
+        </nav>
+      </div>
+
+      <!-- Social/Ports -->
+      <div class="footer-section">
+        <h3 class="section-title">
+          <span class="title-prompt">~/</span>ports
+        </h3>
+        <nav class="nav-list">
+          <a href="https://github.com/krisk248" target="_blank" rel="noopener" class="nav-item">
+            <span class="port-num">:443</span>github
+          </a>
+          <a href="https://www.linkedin.com/in/kannan842/" target="_blank" rel="noopener" class="nav-item">
+            <span class="port-num">:443</span>linkedin
+          </a>
+          <a href="https://x.com/_ph0n1x_" target="_blank" rel="noopener" class="nav-item">
+            <span class="port-num">:443</span>x/twitter
+          </a>
+          <a href="mailto:kannan@knn.net.in" class="nav-item">
+            <span class="port-num">:25</span>email
+          </a>
+        </nav>
+      </div>
+
+      <!-- Encrypted -->
+      <div class="footer-section">
+        <h3 class="section-title">
+          <span class="title-prompt">~/</span>secure
+        </h3>
+        <div class="secure-list">
+          <div class="secure-item">
+            <span class="secure-icon">&#x1F510;</span>
+            <span class="secure-name">signal</span>
+            <span class="secure-handle">@ph0n1x.08</span>
+          </div>
+          <div class="secure-item">
+            <span class="secure-icon">&#x1F7E2;</span>
+            <span class="secure-name">matrix</span>
+            <span class="secure-handle">@ph3n1x_8:matrix.org</span>
+          </div>
         </div>
       </div>
+
+      <!-- Status -->
+      <div class="footer-section">
+        <h3 class="section-title">
+          <span class="title-prompt">~/</span>status
+        </h3>
+        <div class="status-info">
+          <div class="status-row">
+            <span class="status-indicator online"></span>
+            <span class="status-text">accepting connections</span>
+          </div>
+          <a href="/contact" class="ping-btn">
+            <span class="ping-icon">&#x1F4E1;</span>
+            <span>ping me</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="footer-bottom">
+      <div class="bottom-left">
+        <span class="copyright">
+          <span class="copy-prompt">~$</span>
+          echo "&copy; {currentYear} kannan"
+        </span>
+      </div>
+      <div class="bottom-center">
+        <span class="build-info">
+          // built with mass caffine + astro + 2am energy
+        </span>
+      </div>
+      <div class="bottom-right">
+        <span class="exit-hint">
+          <span class="key">Ctrl</span>+<span class="key">C</span> to exit
+        </span>
+      </div>
+    </div>
+
+    <!-- Easter Egg Line -->
+    <div class="easter-line">
+      <span class="easter-text">// if you're reading this, you're probably as curious as me. I like that.</span>
     </div>
   </div>
-
-  <style is:inline>
-    html.light footer {
-      @apply border-dark-100 bg-dark-50;
-    }
-
-    html.light footer h3 {
-      @apply text-dark-900;
-    }
-
-    html.light footer p {
-      @apply text-dark-600;
-    }
-  </style>
 </footer>
+
+<style>
+  .site-footer {
+    background: #0a0a0f;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    margin-top: 0;
+  }
+
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 1.5rem;
+  }
+
+  /* Terminal Section */
+  .footer-terminal {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+  }
+
+  .terminal-line {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+  }
+
+  .prompt {
+    color: #4ecdc4;
+    margin-right: 0.5rem;
+  }
+
+  .command {
+    color: #fff;
+  }
+
+  .neofetch-output {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .ascii-art {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    line-height: 1.2;
+    color: #667eea;
+    white-space: pre;
+  }
+
+  .system-info {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+  }
+
+  .info-line {
+    margin-bottom: 0.25rem;
+    color: #888;
+  }
+
+  .info-key {
+    color: #4ecdc4;
+    margin-right: 0.5rem;
+  }
+
+  .status-online {
+    color: #22c55e;
+  }
+
+  /* Footer Grid */
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .footer-section {
+    min-width: 0;
+  }
+
+  .section-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.875rem;
+    color: #888;
+    margin-bottom: 1rem;
+  }
+
+  .title-prompt {
+    color: #667eea;
+  }
+
+  .nav-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .nav-item {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: #666;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-item:hover {
+    color: #4ecdc4;
+    transform: translateX(4px);
+  }
+
+  .nav-prefix {
+    color: #4ecdc4;
+    margin-right: 0.25rem;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .nav-item:hover .nav-prefix {
+    opacity: 1;
+  }
+
+  .port-num {
+    color: #555;
+    font-size: 0.7rem;
+    margin-right: 0.5rem;
+  }
+
+  /* Secure Section */
+  .secure-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .secure-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+  }
+
+  .secure-icon {
+    font-size: 0.875rem;
+  }
+
+  .secure-name {
+    color: #666;
+  }
+
+  .secure-handle {
+    color: #22c55e;
+    font-size: 0.7rem;
+  }
+
+  /* Status Section */
+  .status-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .status-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+  }
+
+  .status-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+
+  .status-indicator.online {
+    background: #22c55e;
+    box-shadow: 0 0 8px rgba(34, 197, 94, 0.5);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  .status-text {
+    color: #22c55e;
+  }
+
+  .ping-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(78, 205, 196, 0.1);
+    border: 1px solid rgba(78, 205, 196, 0.3);
+    border-radius: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: #4ecdc4;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .ping-btn:hover {
+    background: rgba(78, 205, 196, 0.2);
+    transform: translateY(-2px);
+  }
+
+  .ping-icon {
+    font-size: 0.875rem;
+  }
+
+  /* Bottom Bar */
+  .footer-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+  }
+
+  .bottom-left {
+    color: #555;
+  }
+
+  .copy-prompt {
+    color: #4ecdc4;
+  }
+
+  .bottom-center {
+    color: #444;
+    font-style: italic;
+  }
+
+  .bottom-right {
+    color: #444;
+  }
+
+  .key {
+    display: inline-block;
+    padding: 0.125rem 0.375rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    font-size: 0.625rem;
+  }
+
+  /* Easter Egg */
+  .easter-line {
+    margin-top: 1.5rem;
+    text-align: center;
+  }
+
+  .easter-text {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.625rem;
+    color: #333;
+    font-style: italic;
+  }
+
+  /* Light mode */
+  :global(html.light) .site-footer {
+    background: #fafafa;
+    border-color: #eee;
+  }
+
+  :global(html.light) .ascii-art {
+    color: #667eea;
+  }
+
+  :global(html.light) .info-line,
+  :global(html.light) .nav-item,
+  :global(html.light) .section-title {
+    color: #666;
+  }
+
+  :global(html.light) .command {
+    color: #111;
+  }
+
+  :global(html.light) .ping-btn {
+    background: rgba(78, 205, 196, 0.05);
+  }
+
+  :global(html.light) .footer-terminal,
+  :global(html.light) .footer-bottom {
+    border-color: #eee;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .neofetch-output {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .ascii-art {
+      font-size: 0.5rem;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .bottom-center {
+      order: 3;
+    }
+  }
+</style>

@@ -3,121 +3,750 @@ import BaseLayout from '@layouts/BaseLayout.astro';
 import ThemePreview from '@components/interactive/ThemePreview.vue';
 ---
 
-<BaseLayout title="Interactive Playground - Kannan" description="Interactive demos and tools showcasing my projects and ideas">
-  <main class="min-h-screen bg-dark-900">
-    <!-- Page Header -->
-    <section class="section-padding border-b border-dark-700 bg-gradient-to-b from-dark-800 to-dark-900">
-      <div class="container-custom">
-        <h1 class="text-5xl font-bold mb-4">Interactive Playground</h1>
-        <p class="text-xl text-dark-400 max-w-2xl">
-          Explore interactive demos, tools, and experiments
-        </p>
+<BaseLayout title="> _ | Interactive Playground" description="Interactive demos, tools, and experiments - try them out">
+  <main class="interactive-page">
+    <!-- Terminal Header -->
+    <section class="terminal-header-section">
+      <div class="terminal-prompt">
+        <span class="prompt-path">~/playground</span>
+        <span class="prompt-symbol">$</span>
+        <span class="prompt-command">./explore.sh</span>
+        <span class="cursor">|</span>
+      </div>
+      <p class="terminal-output-hint">
+        // interactive sandbox - break things here, not in production
+      </p>
+    </section>
+
+    <!-- Shell Info -->
+    <section class="shell-info-section">
+      <div class="shell-card">
+        <div class="shell-header">
+          <span class="shell-icon">&#x1F4BB;</span>
+          <span class="shell-title">interactive-shell v1.0</span>
+        </div>
+        <p class="shell-desc">Explore tools, demos, and experiments. Click to execute.</p>
       </div>
     </section>
 
-    <!-- Interactive Content -->
-    <section class="section-padding">
-      <div class="container-custom">
-        <!-- Theme Preview -->
-        <div class="mb-16">
-          <h2 class="text-3xl font-bold mb-8">Theme Customization</h2>
-          <ThemePreview client:only="vue" />
-        </div>
+    <!-- Tools Grid -->
+    <section class="tools-section">
+      <div class="section-header">
+        <span class="section-prompt">~$</span>
+        <span class="section-command">ls ./tools/</span>
+      </div>
 
-        <!-- More Interactive Components -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <!-- Code Examples -->
-          <div class="card">
-            <h3 class="text-2xl font-bold mb-4">Code Examples</h3>
-            <p class="text-dark-400 mb-4">
-              Interactive code samples and documentation coming soon.
-            </p>
-            <pre class="bg-dark-700 p-4 rounded text-sm text-dark-200 overflow-auto mb-4"><code>{`// Example: Security Scanner
-async function scanSecurityHeaders(url) {
-  const response = await fetch(url);
-  const headers = response.headers;
-
-  return {
-    csp: headers.get('content-security-policy'),
-    hsts: headers.get('strict-transport-security'),
-    xframe: headers.get('x-frame-options'),
-  };
-}`}</code></pre>
+      <div class="tools-grid">
+        <!-- Base64 Tool -->
+        <div class="tool-card" data-tool="base64">
+          <div class="tool-header">
+            <span class="tool-icon">&#x1F510;</span>
+            <div class="tool-meta">
+              <span class="tool-name">base64</span>
+              <span class="tool-type">encoder/decoder</span>
+            </div>
+            <span class="tool-badge">active</span>
           </div>
-
-          <!-- Tool Demo -->
-          <div class="card">
-            <h3 class="text-2xl font-bold mb-4">Tools & Utilities</h3>
-            <p class="text-dark-400 mb-4">
-              Various tools and utilities for development and security testing.
-            </p>
-            <div class="space-y-2">
-              <button class="w-full btn btn-secondary text-left">
-                JWT Decoder
-              </button>
-              <button class="w-full btn btn-secondary text-left">
-                Hash Generator
-              </button>
-              <button class="w-full btn btn-secondary text-left">
-                Base64 Encoder/Decoder
-              </button>
+          <div class="tool-body">
+            <div class="tool-input-group">
+              <label class="tool-label">input:</label>
+              <textarea id="base64-input" class="tool-textarea" placeholder="Enter text to encode/decode..."></textarea>
+            </div>
+            <div class="tool-actions">
+              <button class="tool-btn" onclick="encodeBase64()">./encode.sh</button>
+              <button class="tool-btn secondary" onclick="decodeBase64()">./decode.sh</button>
+            </div>
+            <div class="tool-output-group">
+              <label class="tool-label">output:</label>
+              <div id="base64-output" class="tool-output">// result will appear here</div>
             </div>
           </div>
         </div>
 
-        <!-- Animation Showcase -->
-        <div class="mt-12">
-          <h2 class="text-3xl font-bold mb-8">Animation & Effects</h2>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="card h-32 flex items-center justify-center rounded-lg overflow-hidden relative group">
-              <div class="absolute inset-0 bg-gradient-to-r from-primary-600 to-accent-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <div class="relative text-center">
-                <div class="text-3xl mb-2">✨</div>
-                <p class="font-semibold">Fade Animation</p>
-              </div>
+        <!-- Hash Generator -->
+        <div class="tool-card" data-tool="hash">
+          <div class="tool-header">
+            <span class="tool-icon">&#x1F5DD;</span>
+            <div class="tool-meta">
+              <span class="tool-name">hashgen</span>
+              <span class="tool-type">hash generator</span>
             </div>
-
-            <div class="card h-32 flex items-center justify-center rounded-lg group">
-              <div class="text-center group-hover:scale-110 transition-transform duration-300">
-                <div class="text-3xl mb-2">🎨</div>
-                <p class="font-semibold">Scale Effect</p>
-              </div>
+            <span class="tool-badge">active</span>
+          </div>
+          <div class="tool-body">
+            <div class="tool-input-group">
+              <label class="tool-label">input:</label>
+              <input type="text" id="hash-input" class="tool-input" placeholder="Enter text to hash..." />
             </div>
-
-            <div class="card h-32 flex items-center justify-center rounded-lg group">
-              <div class="text-center group-hover:translate-y-2 transition-transform duration-300">
-                <div class="text-3xl mb-2">⬇️</div>
-                <p class="font-semibold">Slide Down</p>
-              </div>
+            <div class="tool-actions">
+              <button class="tool-btn" onclick="generateHash('SHA-256')">sha256</button>
+              <button class="tool-btn secondary" onclick="generateHash('SHA-1')">sha1</button>
+              <button class="tool-btn secondary" onclick="generateHash('MD5')">md5</button>
             </div>
-
-            <div class="card h-32 flex items-center justify-center rounded-lg">
-              <div class="text-center animate-pulse">
-                <div class="text-3xl mb-2">💫</div>
-                <p class="font-semibold">Pulse</p>
-              </div>
+            <div class="tool-output-group">
+              <label class="tool-label">hash:</label>
+              <div id="hash-output" class="tool-output mono">// hash will appear here</div>
             </div>
           </div>
         </div>
+
+        <!-- JWT Decoder -->
+        <div class="tool-card" data-tool="jwt">
+          <div class="tool-header">
+            <span class="tool-icon">&#x1F511;</span>
+            <div class="tool-meta">
+              <span class="tool-name">jwt-decode</span>
+              <span class="tool-type">token decoder</span>
+            </div>
+            <span class="tool-badge">active</span>
+          </div>
+          <div class="tool-body">
+            <div class="tool-input-group">
+              <label class="tool-label">token:</label>
+              <textarea id="jwt-input" class="tool-textarea" placeholder="Paste JWT token here..."></textarea>
+            </div>
+            <div class="tool-actions">
+              <button class="tool-btn" onclick="decodeJWT()">./decode.sh</button>
+            </div>
+            <div class="tool-output-group">
+              <label class="tool-label">payload:</label>
+              <pre id="jwt-output" class="tool-output-pre">// decoded payload will appear here</pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- URL Encoder -->
+        <div class="tool-card" data-tool="url">
+          <div class="tool-header">
+            <span class="tool-icon">&#x1F517;</span>
+            <div class="tool-meta">
+              <span class="tool-name">urlencode</span>
+              <span class="tool-type">url encoder/decoder</span>
+            </div>
+            <span class="tool-badge">active</span>
+          </div>
+          <div class="tool-body">
+            <div class="tool-input-group">
+              <label class="tool-label">input:</label>
+              <input type="text" id="url-input" class="tool-input" placeholder="Enter URL or text..." />
+            </div>
+            <div class="tool-actions">
+              <button class="tool-btn" onclick="encodeURL()">./encode.sh</button>
+              <button class="tool-btn secondary" onclick="decodeURL()">./decode.sh</button>
+            </div>
+            <div class="tool-output-group">
+              <label class="tool-label">output:</label>
+              <div id="url-output" class="tool-output mono">// result will appear here</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Theme Customization -->
+    <section class="theme-section">
+      <div class="section-header">
+        <span class="section-prompt">~$</span>
+        <span class="section-command">./theme-switcher.sh</span>
+      </div>
+      <div class="theme-wrapper">
+        <ThemePreview client:only="vue" />
+      </div>
+    </section>
+
+    <!-- Coming Soon -->
+    <section class="coming-soon-section">
+      <div class="section-header">
+        <span class="section-prompt">~$</span>
+        <span class="section-command">ls ./coming-soon/</span>
+      </div>
+      <div class="coming-grid">
+        <div class="coming-item">
+          <span class="coming-icon">&#x1F916;</span>
+          <span class="coming-name">ai-playground</span>
+          <span class="coming-status">wip</span>
+        </div>
+        <div class="coming-item">
+          <span class="coming-icon">&#x1F3AE;</span>
+          <span class="coming-name">mini-games</span>
+          <span class="coming-status">planned</span>
+        </div>
+        <div class="coming-item">
+          <span class="coming-icon">&#x1F4CA;</span>
+          <span class="coming-name">data-viz</span>
+          <span class="coming-status">planned</span>
+        </div>
+        <div class="coming-item">
+          <span class="coming-icon">&#x1F50D;</span>
+          <span class="coming-name">security-scanner</span>
+          <span class="coming-status">wip</span>
+        </div>
+      </div>
+      <p class="coming-hint">// more experiments brewing... check back after my next 2am session</p>
+    </section>
+
+    <!-- Fun Footer -->
+    <section class="interactive-footer">
+      <div class="footer-terminal">
+        <p class="footer-output">--- playground stats ---</p>
+        <p class="footer-stats">tools loaded: 4 | bugs found: 0 (probably) | fun had: maximum</p>
+        <p class="footer-note">// built these at 2am, use at your own risk</p>
       </div>
     </section>
   </main>
 </BaseLayout>
 
-<style is:inline>
-  html.light main {
-    @apply bg-white;
+<style>
+  .interactive-page {
+    min-height: 100vh;
+    background: #0a0a0f;
   }
 
-  html.light section {
-    @apply bg-gradient-to-b from-dark-50 to-white;
+  /* Terminal Header */
+  .terminal-header-section {
+    padding: 6rem 1.5rem 2rem;
+    text-align: center;
   }
 
-  html.light .text-dark-400 {
-    @apply text-dark-600;
+  .terminal-prompt {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: clamp(1.25rem, 4vw, 2rem);
+    display: inline-flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
-  html.light pre {
-    @apply bg-dark-100;
+  .prompt-path {
+    color: #667eea;
+  }
+
+  .prompt-symbol {
+    color: #4ecdc4;
+  }
+
+  .prompt-command {
+    color: #fff;
+  }
+
+  .cursor {
+    color: #4ecdc4;
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  .terminal-output-hint {
+    margin-top: 1rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.875rem;
+    color: #555;
+  }
+
+  /* Shell Info */
+  .shell-info-section {
+    padding: 0 1.5rem 2rem;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .shell-card {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+    border: 1px solid rgba(102, 126, 234, 0.3);
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+  }
+
+  .shell-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .shell-icon {
+    font-size: 1.25rem;
+  }
+
+  .shell-title {
+    color: #667eea;
+    font-weight: 600;
+  }
+
+  .shell-desc {
+    font-size: 0.875rem;
+    color: #888;
+  }
+
+  /* Section Headers */
+  .section-header {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.875rem;
+    padding: 0 1.5rem;
+    margin-bottom: 1.5rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .section-prompt {
+    color: #4ecdc4;
+    margin-right: 0.5rem;
+  }
+
+  .section-command {
+    color: #fff;
+  }
+
+  /* Tools Grid */
+  .tools-section {
+    padding: 2rem 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .tool-card {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16162a 100%);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .tool-card:hover {
+    border-color: rgba(78, 205, 196, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  .tool-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 1.25rem;
+    background: rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .tool-icon {
+    font-size: 1.5rem;
+  }
+
+  .tool-meta {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .tool-name {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem;
+    color: #fff;
+    font-weight: 600;
+  }
+
+  .tool-type {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: #666;
+  }
+
+  .tool-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.625rem;
+    padding: 0.25rem 0.5rem;
+    background: rgba(78, 205, 196, 0.2);
+    color: #4ecdc4;
+    border-radius: 4px;
+    text-transform: uppercase;
+  }
+
+  .tool-body {
+    padding: 1.25rem;
+  }
+
+  .tool-input-group,
+  .tool-output-group {
+    margin-bottom: 1rem;
+  }
+
+  .tool-label {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+  }
+
+  .tool-input,
+  .tool-textarea {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.875rem;
+    color: #fff;
+    outline: none;
+    transition: all 0.2s ease;
+  }
+
+  .tool-textarea {
+    min-height: 80px;
+    resize: vertical;
+  }
+
+  .tool-input:focus,
+  .tool-textarea:focus {
+    border-color: rgba(78, 205, 196, 0.5);
+    box-shadow: 0 0 0 2px rgba(78, 205, 196, 0.1);
+  }
+
+  .tool-input::placeholder,
+  .tool-textarea::placeholder {
+    color: #555;
+  }
+
+  .tool-actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+  }
+
+  .tool-btn {
+    padding: 0.5rem 1rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .tool-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+  }
+
+  .tool-btn.secondary {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .tool-btn.secondary:hover {
+    background: rgba(78, 205, 196, 0.1);
+    border-color: rgba(78, 205, 196, 0.3);
+    box-shadow: none;
+  }
+
+  .tool-output {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: #888;
+    min-height: 40px;
+    word-break: break-all;
+  }
+
+  .tool-output.mono {
+    font-size: 0.75rem;
+  }
+
+  .tool-output-pre {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: #888;
+    min-height: 80px;
+    max-height: 200px;
+    overflow: auto;
+    white-space: pre-wrap;
+    margin: 0;
+  }
+
+  /* Theme Section */
+  .theme-section {
+    padding: 3rem 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .theme-wrapper {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16162a 100%);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 1.5rem;
+  }
+
+  /* Coming Soon */
+  .coming-soon-section {
+    padding: 2rem 1.5rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .coming-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .coming-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 1.25rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px dashed rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .coming-icon {
+    font-size: 1.25rem;
+    opacity: 0.5;
+  }
+
+  .coming-name {
+    flex: 1;
+    font-size: 0.875rem;
+    color: #666;
+  }
+
+  .coming-status {
+    font-size: 0.625rem;
+    padding: 0.25rem 0.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    color: #555;
+    border-radius: 4px;
+    text-transform: uppercase;
+  }
+
+  .coming-hint {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: #444;
+    text-align: center;
+    font-style: italic;
+  }
+
+  /* Footer */
+  .interactive-footer {
+    padding: 2rem 1.5rem 4rem;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .footer-terminal {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+  }
+
+  .footer-output {
+    color: #4ecdc4;
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-stats {
+    color: #666;
+    margin-bottom: 1rem;
+  }
+
+  .footer-note {
+    color: #555;
+    font-style: italic;
+  }
+
+  /* Light mode */
+  :global(html.light) .interactive-page {
+    background: #fafafa;
+  }
+
+  :global(html.light) .tool-card,
+  :global(html.light) .theme-wrapper {
+    background: #fff;
+    border-color: #eee;
+  }
+
+  :global(html.light) .tool-header {
+    background: #f5f5f5;
+    border-color: #eee;
+  }
+
+  :global(html.light) .tool-name {
+    color: #111;
+  }
+
+  :global(html.light) .tool-input,
+  :global(html.light) .tool-textarea,
+  :global(html.light) .tool-output,
+  :global(html.light) .tool-output-pre {
+    background: #f5f5f5;
+    border-color: #ddd;
+  }
+
+  :global(html.light) .tool-input,
+  :global(html.light) .tool-textarea {
+    color: #111;
+  }
+
+  :global(html.light) .prompt-command,
+  :global(html.light) .section-command {
+    color: #111;
+  }
+
+  :global(html.light) .shell-card {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+  }
+
+  :global(html.light) .coming-item {
+    background: #fff;
+    border-color: #ddd;
+  }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    .tools-grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
+
+<script>
+  // Base64 functions
+  function encodeBase64() {
+    const input = (document.getElementById('base64-input') as HTMLTextAreaElement).value;
+    const output = document.getElementById('base64-output');
+    if (output) {
+      try {
+        output.textContent = btoa(input);
+        output.style.color = '#4ecdc4';
+      } catch (e) {
+        output.textContent = '// error: invalid input for encoding';
+        output.style.color = '#ff6b6b';
+      }
+    }
+  }
+
+  function decodeBase64() {
+    const input = (document.getElementById('base64-input') as HTMLTextAreaElement).value;
+    const output = document.getElementById('base64-output');
+    if (output) {
+      try {
+        output.textContent = atob(input);
+        output.style.color = '#4ecdc4';
+      } catch (e) {
+        output.textContent = '// error: invalid base64 string';
+        output.style.color = '#ff6b6b';
+      }
+    }
+  }
+
+  // Hash functions
+  async function generateHash(algorithm: string) {
+    const input = (document.getElementById('hash-input') as HTMLInputElement).value;
+    const output = document.getElementById('hash-output');
+    if (output) {
+      if (!input) {
+        output.textContent = '// error: please enter text to hash';
+        output.style.color = '#ff6b6b';
+        return;
+      }
+
+      if (algorithm === 'MD5') {
+        // Simple MD5 implementation for demo (not cryptographically secure)
+        output.textContent = '// MD5 is deprecated, use SHA-256';
+        output.style.color = '#ffbd2e';
+        return;
+      }
+
+      try {
+        const encoder = new TextEncoder();
+        const data = encoder.encode(input);
+        const hashBuffer = await crypto.subtle.digest(algorithm, data);
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        output.textContent = hashHex;
+        output.style.color = '#4ecdc4';
+      } catch (e) {
+        output.textContent = '// error: hashing failed';
+        output.style.color = '#ff6b6b';
+      }
+    }
+  }
+
+  // JWT decode
+  function decodeJWT() {
+    const input = (document.getElementById('jwt-input') as HTMLTextAreaElement).value;
+    const output = document.getElementById('jwt-output');
+    if (output) {
+      try {
+        const parts = input.split('.');
+        if (parts.length !== 3) {
+          throw new Error('Invalid JWT format');
+        }
+
+        const header = JSON.parse(atob(parts[0]));
+        const payload = JSON.parse(atob(parts[1]));
+
+        output.textContent = JSON.stringify({ header, payload }, null, 2);
+        output.style.color = '#4ecdc4';
+      } catch (e) {
+        output.textContent = '// error: invalid JWT token';
+        output.style.color = '#ff6b6b';
+      }
+    }
+  }
+
+  // URL encode/decode
+  function encodeURL() {
+    const input = (document.getElementById('url-input') as HTMLInputElement).value;
+    const output = document.getElementById('url-output');
+    if (output) {
+      output.textContent = encodeURIComponent(input);
+      output.style.color = '#4ecdc4';
+    }
+  }
+
+  function decodeURL() {
+    const input = (document.getElementById('url-input') as HTMLInputElement).value;
+    const output = document.getElementById('url-output');
+    if (output) {
+      try {
+        output.textContent = decodeURIComponent(input);
+        output.style.color = '#4ecdc4';
+      } catch (e) {
+        output.textContent = '// error: invalid URL encoding';
+        output.style.color = '#ff6b6b';
+      }
+    }
+  }
+
+  // Make functions globally available
+  (window as any).encodeBase64 = encodeBase64;
+  (window as any).decodeBase64 = decodeBase64;
+  (window as any).generateHash = generateHash;
+  (window as any).decodeJWT = decodeJWT;
+  (window as any).encodeURL = encodeURL;
+  (window as any).decodeURL = decodeURL;
+</script>
