@@ -1,4 +1,4 @@
-# Pfolio
+# U1travi0let
 
 My personal blog and portfolio site built with Astro.
 
@@ -12,7 +12,7 @@ A place where I share my thoughts, experiences, knowledge, and the occasional hi
 
 ## Live Site
 
-[kannan.dev](https://kannan.dev) *(update with your actual domain)*
+[knn.net.in](https://knn.net.in)
 
 ---
 
