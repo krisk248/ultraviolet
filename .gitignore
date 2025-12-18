@@ -97,3 +97,7 @@ dist/
 .moai/
 .github/
 learning/
+
+# Markdown files (keep only README.md)
+*.md
+!README.md
