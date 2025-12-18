@@ -1,0 +1,87 @@
+---
+// MorseCursor.astro
+// A red blinking cursor that transmits "connect me at kannan848@proton.me" in morse code
+---
+
+<span id="morse-cursor" class="morse-cursor">█</span>
+
+<style>
+  .morse-cursor {
+    color: #ff3333;
+    font-family: monospace;
+  }
+</style>
+
+<script>
+  const cursor = document.getElementById('morse-cursor');
+  if (cursor) {
+    const morseCode: Record<string, string> = {
+      'c': '-.-.', 'o': '---', 'n': '-.', 'e': '.', 't': '-',
+      'm': '--', 'a': '.-', 'k': '-.-',
+      '8': '---..', '4': '....-',
+      '@': '.--.--', 'p': '.--.', 'r': '.-.', '.': '.-.-.-',
+      ' ': ' '
+    };
+
+    const message = "connect me at kannan848@proton.me";
+
+    const DOT = 150;
+    const DASH = DOT * 3;
+    const SYMBOL_GAP = DOT;
+    const LETTER_GAP = DOT * 3;
+    const WORD_GAP = DOT * 7;
+
+    interface MorseStep {
+      on: boolean;
+      duration: number;
+    }
+
+    function buildSequence(): MorseStep[] {
+      const sequence: MorseStep[] = [];
+
+      for (let i = 0; i < message.length; i++) {
+        const char = message[i].toLowerCase();
+
+        if (char === ' ') {
+          sequence.push({ on: false, duration: WORD_GAP });
+        } else if (morseCode[char]) {
+          const code = morseCode[char];
+
+          for (let j = 0; j < code.length; j++) {
+            const symbol = code[j];
+
+            if (symbol === '.') {
+              sequence.push({ on: true, duration: DOT });
+            } else if (symbol === '-') {
+              sequence.push({ on: true, duration: DASH });
+            }
+
+            if (j < code.length - 1) {
+              sequence.push({ on: false, duration: SYMBOL_GAP });
+            }
+          }
+
+          if (i < message.length - 1 && message[i + 1] !== ' ') {
+            sequence.push({ on: false, duration: LETTER_GAP });
+          }
+        }
+      }
+
+      sequence.push({ on: false, duration: WORD_GAP * 3 });
+      return sequence;
+    }
+
+    async function runMorse() {
+      const sequence = buildSequence();
+
+      for (const item of sequence) {
+        cursor.style.opacity = item.on ? '1' : '0';
+        await new Promise(r => setTimeout(r, item.duration));
+      }
+
+      runMorse();
+    }
+
+    runMorse();
+  }
+</script>
