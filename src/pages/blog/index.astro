@@ -28,12 +28,12 @@ const postsByYear = posts.reduce((acc, post) => {
 const years = Object.keys(postsByYear).map(Number).sort((a, b) => b - a);
 ---
 
-<BaseLayout title="/dev/thoughts | Blog" description="Brain dumps, discoveries, and late-night realizations about security, making, and everything in between">
+<BaseLayout title="~/thoughts | Blog" description="Brain dumps, discoveries, and late-night realizations about security, making, and everything in between">
   <main class="blog-page">
     <!-- Terminal Header -->
     <section class="terminal-header-section">
       <div class="terminal-prompt">
-        <span class="prompt-path">~/dev/thoughts</span>
+        <span class="prompt-path">~/thoughts</span>
         <span class="prompt-symbol">$</span>
         <span class="prompt-command">tail -f brain.log</span>
         <span class="cursor">|</span>
@@ -128,8 +128,8 @@ const years = Object.keys(postsByYear).map(Number).sort((a, b) => b - a);
         ) : (
           <div class="empty-state">
             <div class="empty-terminal">
-              <p class="empty-prompt">~$ cat /dev/thoughts</p>
-              <p class="empty-output">cat: /dev/thoughts: File is empty</p>
+              <p class="empty-prompt">~$ cat ~/thoughts</p>
+              <p class="empty-output">cat: ~/thoughts: File is empty</p>
               <p class="empty-cursor">~$ _</p>
               <p class="empty-message">// the thoughts are brewing... check back after my next 2am session</p>
             </div>
