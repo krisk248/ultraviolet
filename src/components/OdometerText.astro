@@ -1,0 +1,86 @@
+---
+interface Props {
+  text?: string;
+}
+
+const { text = "COUNT YOUR DAYS" } = Astro.props;
+---
+
+<div class="odometer-container" data-text={text}>
+  {text.split('').map((char, index) => (
+    <span 
+      class={`odometer-char ${char === ' ' ? 'space' : ''}`} 
+      data-target={char}
+      data-index={index}
+    >
+      
+    </span>
+  ))}
+</div>
+
+<style>
+  .odometer-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2px;
+    font-family: monospace;
+    font-size: 1.5rem;
+    padding: 1rem;
+  }
+
+  .odometer-char {
+    display: inline-block;
+    width: 1em;
+    height: 1.6em;
+    line-height: 1.6em;
+    text-align: center;
+    background-color: #1a1a2e;
+    color: #666666;
+    border-radius: 3px;
+    transition: color 0.3s ease, font-weight 0.3s ease;
+  }
+
+  .odometer-char.space {
+    width: 0.5em;
+    background-color: transparent;
+  }
+
+  .odometer-char.settled {
+    color: #ffffff;
+    font-weight: bold;
+  }
+</style>
+
+<script>
+  const containers = document.querySelectorAll('.odometer-container');
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+
+  containers.forEach(container => {
+    const charElements = container.querySelectorAll('.odometer-char');
+
+    charElements.forEach((el, index) => {
+      const target = el.getAttribute('data-target') || '';
+      const startDelay = index * 200;
+      const spinDuration = 800 + Math.random() * 400;
+
+      if (target === ' ') {
+        el.textContent = ' ';
+        el.classList.add('settled');
+        return;
+      }
+
+      setTimeout(() => {
+        const spinInterval = setInterval(() => {
+          el.textContent = chars[Math.floor(Math.random() * chars.length)];
+        }, 50);
+
+        setTimeout(() => {
+          clearInterval(spinInterval);
+          el.textContent = target;
+          el.classList.add('settled');
+        }, spinDuration);
+      }, startDelay);
+    });
+  });
+</script>
