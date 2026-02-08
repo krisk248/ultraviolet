@@ -201,6 +201,10 @@ import BaseLayout from '@layouts/BaseLayout.astro';
             <span>ls -la</span>
             <span class="cta-hint">see the projects</span>
           </a>
+          <a href="/Kannan_CV.pdf" download class="cta-resume">
+            <span>cat resume.pdf</span>
+            <span class="cta-hint">download cv</span>
+          </a>
           <a href="/contact" class="cta-secondary">
             <span>ping</span>
             <span class="cta-hint">let's talk</span>
@@ -507,7 +511,8 @@ import BaseLayout from '@layouts/BaseLayout.astro';
   }
 
   .cta-primary,
-  .cta-secondary {
+  .cta-secondary,
+  .cta-resume {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -538,6 +543,19 @@ import BaseLayout from '@layouts/BaseLayout.astro';
   .cta-secondary:hover {
     background: rgba(78, 205, 196, 0.1);
     border-color: #4ecdc4;
+  }
+
+  .cta-resume {
+    background: rgba(241, 250, 140, 0.08);
+    border: 1px solid rgba(241, 250, 140, 0.2);
+    color: #f1fa8c;
+  }
+
+  .cta-resume:hover {
+    background: rgba(241, 250, 140, 0.15);
+    border-color: #f1fa8c;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(241, 250, 140, 0.15);
   }
 
   .cta-hint {
