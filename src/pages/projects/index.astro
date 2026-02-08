@@ -5,7 +5,7 @@ import { getCollection } from 'astro:content';
 const allProjects = await getCollection('projects');
 
 // Group projects by category
-const categories = ['security', '3d-printing', 'electronics', 'python', 'ai'];
+const categories = ['security', '3d-printing', 'electronics', 'python', 'ai', 'devops'];
 ---
 
 <BaseLayout title="ls -la | Projects" description="Explore my work across security, making, and automation">
@@ -18,9 +18,6 @@ const categories = ['security', '3d-printing', 'electronics', 'python', 'ai'];
         <span class="prompt-command">ls -la</span>
         <span class="cursor">|</span>
       </div>
-      <p class="terminal-output-hint">
-        // the work speaks for itself
-      </p>
     </section>
 
     <!-- Category Filter -->
@@ -50,6 +47,10 @@ const categories = ['security', '3d-printing', 'electronics', 'python', 'ai'];
           <span class="tab-icon">&#x1F916;</span>
           <span class="tab-label">ai</span>
         </button>
+        <button class="filter-tab" data-filter="devops">
+          <span class="tab-icon">&#x2699;</span>
+          <span class="tab-label">devops</span>
+        </button>
       </div>
     </section>
 
@@ -66,6 +67,7 @@ const categories = ['security', '3d-printing', 'electronics', 'python', 'ai'];
                   {project.data.category === 'electronics' && '&#x26A1;'}
                   {project.data.category === 'python' && '&#x1F40D;'}
                   {project.data.category === 'ai' && '&#x1F916;'}
+                  {project.data.category === 'devops' && '&#x2699;'}
                 </span>
                 <span class="project-date">{new Date(project.data.date).toISOString().split('T')[0]}</span>
               </div>

@@ -1,0 +1,52 @@
+---
+title: Job Runner
+description: A web UI to manage and run background Java jobs for QA and Dev teams - no SSH required
+category: devops
+image: /images/projects/job-runner/hero.png
+tags: [Java, Tomcat, Docker, TOML, REST API]
+github: https://github.com/krisk248/job-runner
+featured: false
+date: 2026-01-26
+---
+
+{/* SCREENSHOT: Add hero screenshot of the Job Runner web UI dashboard */}
+{/* Place image at: public/images/projects/job-runner/hero.png */}
+![Job Runner Dashboard](/images/projects/job-runner/hero.png)
+
+## The Problem
+
+{/* YOUR STORY: Why did you build this? What pain point did it solve? Example below - replace with your actual story */}
+
+QA and Dev teams needed to run background Java processes on servers, but every time they had to SSH in, navigate to the right directory, and manually kick off jobs. It was repetitive, error-prone, and not everyone on the team had (or should have) SSH access to production-adjacent environments.
+
+## What It Does
+
+Job Runner gives teams a clean web interface to start, stop, and monitor background Java processes - no terminal access needed. You configure your jobs once in a simple TOML file, deploy the WAR, and anyone on the team can manage jobs through their browser.
+
+Real-time log viewing means you can watch job output as it happens, without tailing log files on a server.
+
+{/* SCREENSHOT: Add screenshot of log viewing or job management in action */}
+{/* Place image at: public/images/projects/job-runner/logs.png */}
+![Real-time Logs](/images/projects/job-runner/logs.png)
+
+## Key Features
+
+- **Web UI** - Start, stop, and monitor jobs from the browser
+- **Real-time logs** - Watch job output live, no SSH needed
+- **TOML config** - Simple, readable job definitions
+- **Two job types** - Continuous (long-running) and on-demand (one-shot)
+- **REST API** - Full programmatic control for automation
+
+## Tech Stack
+
+- **Java 11+** with Jakarta EE (Tomcat 10/11)
+- **TOML** for human-friendly configuration
+- **HTML/CSS/JS** for the web interface
+- **Docker** ready for containerized deployments
+- **Maven** build system
+
+## Context
+
+{/* YOUR STORY: Where is this used? What impact has it had? Replace with your actual context */}
+
+Built for internal use and open-sourced for teams facing the same problem. Also maintains a [Java 8 / Tomcat 9 version](https://github.com/krisk248/job-runner-8) for legacy environments.
