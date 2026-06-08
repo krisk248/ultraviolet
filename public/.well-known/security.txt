@@ -1,0 +1,21 @@
+# ─────────────────────────────────────────────────────────────
+#
+#    █ █ █▀▀ █   █   █▀█   █ █ ▄▀█ █▀▀ █▄▀ █▀▀ █▀█
+#    █▀█ ██▄ █▄▄ █▄▄ █▄█   █▀█ █▀█ █▄▄ █ █ ██▄ █▀▄
+#
+#   Welcome, fellow hacker. You found the back door.
+#
+#   .-- . .-.. -.-. --- -- . / ..-. . .-.. .-.. --- .-- / .... .- -.-. -.- . .-.
+#   ( decode that ☝ and you'll know why this file exists )
+#
+#   If it exists, it can be hacked.
+#   If it doesn't exist, it can be built.
+#
+#   Found a bug? Coffee's on me.
+#
+# ─────────────────────────────────────────────────────────────
+
+Contact: mailto:kannan@kannan.sh
+Expires: 2027-06-08T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://kannan.sh/.well-known/security.txt
