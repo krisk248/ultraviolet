@@ -5,7 +5,7 @@ import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://knn.net.in', // UPDATE THIS to your actual domain
+  site: 'https://kannan.sh',
   integrations: [
     vue({ appEntrypoint: '/src/pages/_app.ts' }),
     mdx(),

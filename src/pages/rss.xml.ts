@@ -15,7 +15,7 @@ export async function GET(context: APIContext) {
   return rss({
     title: 'Kannan | Blog',
     description: 'Thoughts on security, making things, and automation from a DevSecOps engineer.',
-    site: context.site ?? 'https://ultraviolet.knn.net.in',
+    site: context.site ?? 'https://kannan.sh',
     items: sortedPosts.map((post) => ({
       title: post.data.title,
       pubDate: post.data.date,
